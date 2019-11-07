@@ -76,7 +76,7 @@ var PropSchema = new Schema({
     type:Array
   },
   saletp: {
-    type:Array
+    type:[String]
   },
   sid: {
     type:String

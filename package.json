@@ -26,8 +26,7 @@
     "mongoose": "^5.7.7",
     "nodemon": "^1.19.4",
     "react": "^16.11.0",
-    "react-dom": "^16.11.0",
-    "react-map-gl": "^5.1.1"
+    "react-dom": "^16.11.0"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",

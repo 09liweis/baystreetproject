@@ -16,8 +16,10 @@ class App extends Component {
     fetch('/api/prop')
     .then(res=>res.json())
     .then(ret=>{
-      this.setMarkers(ret);
-      this.setState({list:ret,loading:false})
+      if (ret.length > 0) {
+        this.setMarkers(ret);
+        this.setState({list:ret,loading:false})
+      }
     })
   }
   setMarkers(props) {

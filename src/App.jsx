@@ -28,13 +28,19 @@ class App extends Component {
     .then(ret=>{
       if (ret.length > 0) {
         this.setMarkers(ret);
-        this.setState({list:ret,loading:false})
+        this.setState({list:ret,loading:false});
+      } else {
+        this.clearMarkers();
+        this.setState({list:[],loading:false});
       }
     })
   }
-  setMarkers(props) {
+  clearMarkers() {
     markers.forEach((marker) => marker.remove());
     markers = [];
+  }
+  setMarkers(props) {
+    this.clearMarkers();
     let bounds = new mapboxgl.LngLatBounds();
     for (let i in props) {
       let p = props[i]

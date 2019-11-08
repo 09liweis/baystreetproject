@@ -7,13 +7,23 @@ class App extends Component {
     this.state = {
       list:[],
       loading:false,
-      markers:[]
+      markers:[],
+      filters:{search:''}
     };
+    this.handleSearch = this.handleSearch.bind(this);
   }
   componentDidMount() {
     this.setMap();
     this.setState({loading:true});
-    fetch('/api/prop')
+    this.getProps();
+  }
+  getProps() {
+    const {filters} = this.state;
+    fetch('/api/prop',{
+      method:'post',
+      headers: {'Content-Type':'application/json'},
+      body:JSON.stringify(filters)
+    })
     .then(res=>res.json())
     .then(ret=>{
       if (ret.length > 0) {
@@ -23,15 +33,19 @@ class App extends Component {
     })
   }
   setMarkers(props) {
+    let {markers} = this.state;
+    for (let i in markers) {
+      markers[i].remove();
+      markers.splice(i,1);
+    }
     let bounds = new mapboxgl.LngLatBounds();
-    let markers = [];
     for (let i in props) {
       let p = props[i]
       var pos = [p.lng,p.lat];
       let el = document.createElement('div');
       el.className = 'marker';
       el.setAttribute('id', p.sid);
-      el.innerHTML = p.lp;
+      el.innerHTML = '$'+p.lp.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
       var marker = new mapboxgl.Marker(el)
       .setLngLat(pos)
       .addTo(this.map);
@@ -50,8 +64,26 @@ class App extends Component {
       zoom: 9 // starting zoom
     });
   }
+  handleSearch(e) {
+    const val = e.target.value;
+    let {filters} = this.state;
+    filters.search = val;
+    this.setState({
+      filters
+    });
+    if (val.trim() == '') {
+      return;
+    }
+    if (this.timer) {
+      clearTimeout(this.timer);
+      delete this.timer;
+    }
+    this.timer = setTimeout(()=>{
+      this.getProps();
+    },1000)
+  }
   render() {
-    const {loading,list} = this.state;
+    const {loading,list,filters} = this.state;
     let propsView = list.map((p)=>{
       return (
         <Prop key={p.sid} p={p}/>
@@ -59,7 +91,10 @@ class App extends Component {
     })
     return (
       <div className="container">
-        <div id="map"></div>
+        <div className="mapContainer">
+          <input value={filters.search} onChange={this.handleSearch} />
+          <div id="map"></div>
+        </div>
         <div className="propList">
           {loading?'Loading':propsView}
         </div>

@@ -2,6 +2,7 @@ const express = require('express'),
 port = process.env.PORT || 8083
 path = require('path'),
 app = express(),
+bodyParser = require('body-parser'),
 mongoose = require('mongoose')
 pageRoute = require('./server/router/page')
 propRoute = require('./server/router/prop');
@@ -23,6 +24,9 @@ mongoose.connection.on('error', function() {
 mongoose.connection.on('disconnected', function () {    
   console.log('Mongoose connection disconnected');
 });
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jsx');

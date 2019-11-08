@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import Prop from './components/Prop.jsx';
+import {getPrice} from './util.js'
 var markers = [];
 class App extends Component {
   constructor() {
@@ -48,7 +49,7 @@ class App extends Component {
       let el = document.createElement('div');
       el.className = 'marker';
       el.setAttribute('id', p.sid);
-      el.innerHTML = '$'+p.lp.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      el.innerHTML = getPrice(p);
       var marker = new mapboxgl.Marker(el)
       .setLngLat(pos)
       .addTo(this.map);

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
+import {getPrice} from '../util.js';
 class Prop extends Component {
   constructor() {
     super();
@@ -17,7 +18,8 @@ class Prop extends Component {
     return (
       <div className="prop">
         <img className="propImg" src={img}/>
-        {p.addr}
+        <div>{p.addr}</div>
+        <span>{getPrice(p)}</span>
       </div>
     );
   }

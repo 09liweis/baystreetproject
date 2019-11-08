@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import Prop from './components/Prop.jsx';
+var markers = [];
 class App extends Component {
   constructor() {
     super();
     this.state = {
       list:[],
       loading:false,
-      markers:[],
       filters:{search:''}
     };
     this.handleSearch = this.handleSearch.bind(this);
@@ -33,11 +33,8 @@ class App extends Component {
     })
   }
   setMarkers(props) {
-    let {markers} = this.state;
-    for (let i in markers) {
-      markers[i].remove();
-      markers.splice(i,1);
-    }
+    markers.forEach((marker) => marker.remove());
+    markers = [];
     let bounds = new mapboxgl.LngLatBounds();
     for (let i in props) {
       let p = props[i]
@@ -53,7 +50,6 @@ class App extends Component {
       markers.push(marker);
     }
     this.map.fitBounds(bounds)
-    this.setState({markers});
   }
   setMap() {
     mapboxgl.accessToken = 'pk.eyJ1Ijoic2FtbGl3ZWlzZW4iLCJhIjoiY2p3YjBqaWlrMDZvajN5bzIycmxjeWxucCJ9.t9ETmxK0LPiprUL8L_3Ocw';

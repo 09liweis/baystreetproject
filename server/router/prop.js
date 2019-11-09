@@ -18,6 +18,9 @@ router.route('/')
     }
     res.status(200).json(props);
 	});
-})
+});
+router.route('/importCity').get((req,res)=>{
+  res.status(200).json('done');
+});
 
 module.exports = router;

@@ -22,9 +22,14 @@ body {
 .propImg {
   width:100%;
 }
-#map {
+.mapContainer {
   height: 100vh;
   width:80%;
+  position:relative;
+}
+#map {
+  width:100%;
+  height:100%;
 }
 .marker {
 	position: relative;

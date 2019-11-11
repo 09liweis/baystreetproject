@@ -6,6 +6,11 @@ class Prop extends Component {
     super();
 
   }
+  gotoProp() {
+    const {p} = this.props;
+    let url = `/prop/${p.sid}`;
+    window.open(url,'_blank');
+  }
   componentDidMount() {
 
   }
@@ -16,7 +21,7 @@ class Prop extends Component {
       img = p.photos[0];
     }
     return (
-      <div className="prop">
+      <div className="prop" onClick={this.gotoProp.bind(this)}>
         <img className="propImg" src={img}/>
         <div>{p.addr}</div>
         <span>{getPrice(p)}</span>

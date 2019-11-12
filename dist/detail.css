@@ -2,3 +2,26 @@
   display: flex;
   flex-direction:row;
 }
+.detailAddress {
+  font-size: -webkit-xxx-large;
+  color:red;
+}
+.detailprov {
+  font-size: -webkit-xxx-large;
+  color:red;
+}
+.detailzip {
+  font-size: -webkit-xxx-large;
+  color:red;
+}
+.detailCity {
+  text-transform: uppercase;
+}
+
+
+.detaillp {
+  color:red;
+  width: 100%;
+  text-align: center;
+  
+}

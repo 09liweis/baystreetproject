@@ -10,10 +10,27 @@ class Detail extends React.Component {
     return (
       <DefaultLayout title={prop.addr}>
         <div className="detailPage">
+          <div className="">
+            <span className="detailAddress">{prop.addr},</span>
+            <span className="detailprov">{prop.prov},</span>
+            <span className="detailzip">{prop.zip}</span>
+          </div>
           <div className="detailImgs">
             {imgs}
           </div>
-          {prop.addr}
+          <div className="detaillp">${prop.lp}</div>
+          <div className="detailunt">{prop.unt}</div>
+          <div className="detailpunt">{prop.lpunt}</div>
+          <div className="detailpstyl">{prop.pstyl}</div>
+          <div className="detailtp">{prop.ltp}</div>
+          <div className="detaillstd">List Date:{prop.lstd}</div>
+          <div className="detailCity">{prop.city}</div>
+          <div className="detailCmty">{prop.cmty}</div>
+          <div className="detailbedroom">Bedroom: {prop.bdrms}</div>
+          <div className="detailbathroom">Bathroom: {prop.bthrms}</div>
+          <div className="detailtotalbedrooms">Total Bedrooms: {prop.tbdrms}</div>
+          <div className="detailgarage">Garage: {prop.gr}</div>
+          <div className="detailgeoq">Geoq: {prop.geoq}</div>
         </div>
       </DefaultLayout>
     )

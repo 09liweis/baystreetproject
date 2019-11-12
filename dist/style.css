@@ -9,23 +9,28 @@ body {
   display: flex;
 }
 .propList {
-  width:20%;
+  width:50%;
   height: 100vh;
   overflow: scroll;
 }
 .prop {
+  display:inline-block;
   cursor:pointer;
   padding:10px;
-  width:100%;
+  width:50%;
   box-shadow: 0 1px 6px rgba(0,0,0,.117647), 0 1px 4px rgba(0,0,0,.117647);
   margin-bottom: 10px;
 }
 .propImg {
   width:100%;
 }
+.propPrice {
+  color:#f4604c;
+  font-weight:bold;
+}
 .mapContainer {
   height: 100vh;
-  width:80%;
+  width:50%;
   position:relative;
 }
 #map {

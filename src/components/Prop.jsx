@@ -24,7 +24,7 @@ class Prop extends Component {
       <div className="prop" onClick={this.gotoProp.bind(this)}>
         <img className="propImg" src={img}/>
         <div>{p.addr}</div>
-        <span>{getPrice(p)}</span>
+        <span className="propPrice">{getPrice(p)}</span>
       </div>
     );
   }

@@ -8,9 +8,10 @@ router.route('/')
   res.render('index', {title:'Bay Street Project' });
 })
 router.route('/prop/:id').get((req,res)=>{
-  const id = req.param('id');
+  const id = req.params.id;
   Prop.findOne({sid:id},(err,prop)=>{
     prop.photos = listingPicUrls(prop,false);
+    console.log(prop);
     res.render('detail',{prop});
   })
 });

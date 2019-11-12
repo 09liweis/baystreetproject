@@ -1,0 +1,4 @@
+.detailImgs {
+  display: flex;
+  flex-direction:row;
+}

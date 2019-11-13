@@ -1,27 +1,46 @@
-.detailImgs {
-  display: flex;
-  flex-direction:row;
-}
 .detailAddress {
-  font-size: -webkit-xxx-large;
-  color:red;
-}
-.detailprov {
-  font-size: -webkit-xxx-large;
-  color:red;
-}
-.detailzip {
-  font-size: -webkit-xxx-large;
-  color:red;
+  font-size: xx-large;
+  color: black;
+  margin-top: 40px;
+  margin-left: 40px;
 }
 .detailCity {
-  text-transform: uppercase;
+  font-size: xx-large;
+  color: black;
+  margin-left: 40px;
+
+}
+.detailprov {
+  font-size: xx-large;
+  color: black; 
+}
+.detailzip {
+  font-size: xx-large;
+  color: black; 
 }
 
+.detailImgs {
+  display: flex;
+  flex-direction:row; 
+  width: fit-content;
+}
 
 .detaillp {
   color:red;
   width: 100%;
-  text-align: center;
-  
+  font-size: xx-large;
+  text-align: left;
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.detailpunt{
+  color:red;
+  width: 100%;
+  font-size: xx-large;
+  text-align: right;
+  content: "";
+  display: table;
+  clear: both;
 }

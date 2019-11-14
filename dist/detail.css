@@ -19,6 +19,14 @@
   color: black; 
 }
 
+.detaillstd{
+  position: relative;
+  text-align:right;
+}
+
+
+
+
 .detailImgs {
   display: flex;
   flex-direction:row; 

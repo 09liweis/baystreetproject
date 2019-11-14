@@ -15,6 +15,7 @@ class Detail extends React.Component {
             <span className="detailCity">{prop.city}, </span>
             <span className="detailprov">{prop.prov}, </span>
             <span className="detailzip">{prop.zip} </span>
+          <div className="dtitle"></div> 
           <div className="detaillstd">List Date:{prop.lstd}</div> 
           </div>
           <div className="detailImgs">

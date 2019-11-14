@@ -21,6 +21,7 @@ class DefaultLayout extends React.Component {
             <div id="nav">
               <a className="navItem" href="/">Buy</a>
               <a className="navItem" href="/stats">Stats</a>
+              <a className="navItem" href="/login">Login</a>
             </div>
           </header>
           <main>{this.props.children}</main>

@@ -10,6 +10,9 @@ router.route('/')
 router.route('/stats').get((req,res)=>{
   res.render('stats',{title:'Stats'});
 });
+router.route('/login').get((req,res)=>{
+  res.render('login',{title:'Login Page'});
+});
 router.route('/prop/:id').get((req,res)=>{
   const id = req.params.id;
   Prop.findOne({sid:id},(err,prop)=>{

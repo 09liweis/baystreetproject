@@ -1,1 +1,8 @@
 Bay Street Project
+
+To start the project:
+install node and npm
+then run command: npm run start
+
+import json from local to production:
+mongoimport -h ds125489.mlab.com:25489 -d heroku_6njptcbp -c props -u heroku_6njptcbp -p dg8h3o8v9dpjk1osignqn3ibel --file props.json

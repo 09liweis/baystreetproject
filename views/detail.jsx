@@ -27,7 +27,10 @@ class Detail extends React.Component {
           </div>
           <div className="detailunt">{prop.unt}</div>
           
-          <div className="detailpstyl">{prop.pstyl}</div>
+          <div className="detailtax">{prop.tax}</div>
+          <div className="detailtaxyr">{prop.taxyr}</div>
+          <div className="detailstorey">{prop.pstyl}</div>
+          <div className="detailtotalparkingspace">{prop.tot_park_spcs}</div>
           <div className="detailtp">{prop.ltp}</div>
           
           
@@ -35,8 +38,11 @@ class Detail extends React.Component {
           <div className="detailbedroom">Bedroom: {prop.bdrms}</div>
           <div className="detailbathroom">Bathroom: {prop.bthrms}</div>
           <div className="detailtotalbedrooms">Total Bedrooms: {prop.tbdrms}</div>
-          <div className="detailgarage">Garage: {prop.gr}</div>
+          <div className="detailgarage">Garage: {prop.tgr}</div>
           <div className="detailgeoq">Geoq: {prop.geoq}</div>
+          <div className="detailwater">Water: {prop.water}</div>
+          <div className="detailrealestatecenter">{prop.rltr}</div>
+          <div className="detailcrossstreet">{prop.crsst}</div>
         </div>
       </DefaultLayout>
     )

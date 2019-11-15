@@ -11,8 +11,7 @@ router.route('/')
   let query = {};
   if (filters.search) {
     query.addr = new RegExp(filters.search,'i');
-  }
-  if (filters.bbox) {
+  } else if (filters.bbox) {
     const swLng = filters.bbox[0]
     const swLat = filters.bbox[1]
     const neLng = filters.bbox[2]

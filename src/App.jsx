@@ -14,12 +14,17 @@ class App extends Component {
     this.handleSearch = this.handleSearch.bind(this);
   }
   componentDidMount() {
-    this.setMap();
+    this.fitBound = true;
     this.setState({loading:true});
-    this.getProps();
+    this.setMap();
   }
   getProps() {
-    const {filters} = this.state;
+    const bnds = this.map.getBounds();
+    const ne = bnds.getNorthEast()
+    const sw = bnds.getSouthWest()
+    const bbox = [sw.toArray()[0],sw.toArray()[1],ne.toArray()[0],ne.toArray()[1]]
+    let {filters} = this.state;
+    filters.bbox = bbox;
     fetch('/api/prop',{
       method:'post',
       headers: {'Content-Type':'application/json'},
@@ -56,16 +61,27 @@ class App extends Component {
       bounds.extend(pos);
       markers.push(marker);
     }
-    this.map.fitBounds(bounds)
+    if (this.fitBound){
+      this.map.fitBounds(bounds)
+    }
   }
   setMap() {
     mapboxgl.accessToken = 'pk.eyJ1Ijoic2FtbGl3ZWlzZW4iLCJhIjoiY2p3YjBqaWlrMDZvajN5bzIycmxjeWxucCJ9.t9ETmxK0LPiprUL8L_3Ocw';
-      this.map = new mapboxgl.Map({
+    this.map = new mapboxgl.Map({
       container: 'map', // container id
       style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
       center: [-79.8943043333333, 43.495693], // starting position [lng, lat]
       zoom: 9 // starting zoom
     });
+    this.map.on('dragend',(e)=>{
+      this.fitBound = false;
+      this.getProps();
+    });
+    this.map.on('zoomend',(e)=>{
+      this.fitBound = false;
+      this.getProps();
+    })
+    this.getProps();
   }
   handleSearch(e) {
     const val = e.target.value;
@@ -82,6 +98,7 @@ class App extends Component {
       delete this.timer;
     }
     this.timer = setTimeout(()=>{
+      this.fitBound = true;
       this.getProps();
     },1000)
   }
@@ -95,7 +112,9 @@ class App extends Component {
     return (
       <div className="container">
         <div className="mapContainer">
-          <input value={filters.search} onChange={this.handleSearch} />
+          <div className="filterContainer">
+            <input className="search" placeholder="Search address" value={filters.search} onChange={this.handleSearch} />
+          </div>
           <div id="map"></div>
         </div>
         <div className="propList">

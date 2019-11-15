@@ -1,4 +1,67 @@
+.detailAddress {
+  font-size: x-large;
+  color: black;
+  margin-top: 40px;
+  margin-left: 40px;
+}
+
+.detailCity {
+  font-size: x-large;
+  color: black;
+  margin-left: 40px; 
+}
+.detailprov {
+  font-size: x-large;
+  color: black; 
+}
+.detailzip {
+  font-size: x-large;
+  color: black; 
+}
+.dtitle{
+  width: 100%;
+    text-align: center;
+    border-top: 0px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+    border-right: none;
+    padding: .625rem 0;
+}
+
+.detaillstd{
+  position: relative;
+  text-align:right;
+}
+
 .detailImgs {
   display: flex;
-  flex-direction:row;
+  flex-direction:row; 
+  width: 100%;
+  height:300px;
+  position: relative;
+}
+
+.detaillp {
+  color:red;
+  width: 100%;
+  font-size: x-large;
+  text-align: left;
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.detailpunt{
+  color:red;
+  width: 100%;
+  font-size: x-large;
+  text-align: right;
+  content: "";
+  display: table;
+  clear: both;
+  width: 100%;
+    text-align: right;
+    border-top: 0px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+    border-right: none;
+    padding: .625rem 0;
 }

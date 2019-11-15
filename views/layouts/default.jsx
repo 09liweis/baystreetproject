@@ -11,6 +11,7 @@ class DefaultLayout extends React.Component {
           <meta httpEquiv="X-UA-Compatible" content="ie=edge"/>
           <link rel="stylesheet" href="/dist/style.css" type="text/css" />
           <link rel="stylesheet" href="/dist/detail.css" type="text/css" />
+          <script src="https://kit.fontawesome.com/76b75c48c1.js" crossorigin="anonymous"></script>
           <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"/>
           <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
           <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
@@ -24,7 +25,7 @@ class DefaultLayout extends React.Component {
               <a className="navItem" href="/login">Login</a>
             </div>
           </header>
-          <main>{this.props.children}</main>
+          <main id="main">{this.props.children}</main>
           <footer>Footer</footer>
         </body>
       </html>

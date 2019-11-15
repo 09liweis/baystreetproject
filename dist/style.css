@@ -36,6 +36,14 @@ body {
 .container {
   display: flex;
 }
+.filterContainer {
+  margin-bottom: 10px;
+}
+.search {
+  padding:10px;
+  width:100%;
+  border:1px solid #ccc;
+}
 .propList {
   width:100%;
   height: 100vh;

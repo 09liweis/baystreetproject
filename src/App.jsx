@@ -61,7 +61,7 @@ class App extends Component {
       bounds.extend(pos);
       markers.push(marker);
     }
-    if (this.fitBounds){
+    if (this.fitBound){
       this.map.fitBounds(bounds)
     }
   }
@@ -98,6 +98,7 @@ class App extends Component {
       delete this.timer;
     }
     this.timer = setTimeout(()=>{
+      this.fitBound = true;
       this.getProps();
     },1000)
   }
@@ -111,7 +112,9 @@ class App extends Component {
     return (
       <div className="container">
         <div className="mapContainer">
-          <input value={filters.search} onChange={this.handleSearch} />
+          <div className="filterContainer">
+            <input className="search" placeholder="Search address" value={filters.search} onChange={this.handleSearch} />
+          </div>
           <div id="map"></div>
         </div>
         <div className="propList">

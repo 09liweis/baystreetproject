@@ -5,9 +5,9 @@ class Stats extends React.Component {
   render() {
     const {title} = this.props;
     return (
-      <DefaultLayout title={title}>
+      <DefaultLayout title={title} page={'stats'}>
         <div className="statsPage">
-          
+          <h1 className="statsTitle">Stats Page</h1>
         </div>
       </DefaultLayout>
     )

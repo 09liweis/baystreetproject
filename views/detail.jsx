@@ -8,7 +8,7 @@ class Detail extends React.Component {
       <img className="img" src={img}/>
     );
     return (
-      <DefaultLayout title={prop.addr}>
+      <DefaultLayout title={prop.addr} page={'detail'}>
         <div className="detailPage">
           <div className="detailAddress">{prop.addr}</div>
           <div className="">

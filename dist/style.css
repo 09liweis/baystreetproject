@@ -37,15 +37,16 @@ body {
   display: flex;
 }
 .propList {
-  width:50%;
+  width:100%;
   height: 100vh;
   overflow: scroll;
+  display:none;
 }
 .prop {
   display:inline-block;
   cursor:pointer;
   padding:10px;
-  width:50%;
+  width:100%;
   box-shadow: 0 1px 6px rgba(0,0,0,.117647), 0 1px 4px rgba(0,0,0,.117647);
   margin-bottom: 10px;
 }
@@ -58,7 +59,7 @@ body {
 }
 .mapContainer {
   height: 100vh;
-  width:50%;
+  width:100%;
   position:relative;
 }
 #map {
@@ -87,4 +88,14 @@ body {
 	left: 0;
 	margin: auto;
 	right: 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .propList,.mapContainer {
+    width:50%;
+    display:block;
+  }
+  .prop {
+    width:50%;
+  }
 }

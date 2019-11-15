@@ -12,6 +12,14 @@ router.route('/')
   if (filters.search) {
     query.addr = new RegExp(filters.search,'i');
   }
+  if (filters.bbox) {
+    const swLng = filters.bbox[0]
+    const swLat = filters.bbox[1]
+    const neLng = filters.bbox[2]
+    const neLat = filters.bbox[3]
+    query.lat = {$lt:neLat,$gt:swLat};
+    query.lng = {$lt:neLng,$gt:swLng};
+  }
   Prop.find(query,'', {limit:20}).sort('-ts').exec((err, props) => {
     for(let i in props) {
       let p = props[i];

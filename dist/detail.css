@@ -1,22 +1,27 @@
 .detailAddress {
-  font-size: x-large;
+  font-size: large;
   color: black;
   margin-top: 40px;
   margin-left: 40px;
 }
 
 .detailCity {
-  font-size: x-large;
+  font-size: large;
   color: black;
   margin-left: 40px; 
 }
 .detailprov {
-  font-size: x-large;
+  font-size: large;
   color: black; 
 }
 .detailzip {
-  font-size: x-large;
+  font-size: large;
   color: black; 
+}
+.detailcrossstreet{
+  font-size: small;
+  color: black; 
+  margin-left: 40px; 
 }
 .dtitle{
   width: 100%;
@@ -27,7 +32,7 @@
     padding: .625rem 0;
 }
 
-.detaillstd{
+.detaillisrdate{
   position: relative;
   text-align:right;
 }
@@ -40,7 +45,7 @@
   position: relative;
 }
 
-.detaillp {
+.detailprice {
   color:red;
   width: 100%;
   font-size: x-large;
@@ -50,7 +55,7 @@
   clear: both;
 }
 
-.detailpunt{
+.detailforsale{
   color:red;
   width: 100%;
   font-size: x-large;
@@ -65,3 +70,163 @@
     border-right: none;
     padding: .625rem 0;
 }
+
+.detailtotalbedrooms{
+  margin-bottom: .5rem;
+    margin-left: 0;  
+  
+  }
+
+  .detailbathroom{
+    margin-bottom: .5rem;
+      margin-left: 0;  
+       
+    }
+
+  .detailkitchen{
+  margin-bottom: .5rem;
+    margin-left: 0;   
+   
+  }
+
+  .detailgarage{
+    margin-bottom: .5rem;
+      margin-left: 0; 
+        
+    }
+
+    .detailtotalparkingspace{
+    margin-bottom: .5rem;
+      margin-left: 0;  
+       
+    }
+
+
+.dtitle1{
+  width: 100%;
+    text-align: center;
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 0px solid #e6e6e6;
+    border-right: none;
+    padding: .625rem 0;
+}
+
+.dtitle2{
+  width: 100%;
+    text-align: center;
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 0px solid #e6e6e6;
+    border-right: none;
+    padding: .625rem 0;
+}
+
+.detaildetail{
+  word-break:break-all; width:500px; overflow:auto;
+}
+
+.detailsqft{
+  margin-bottom: .5rem;
+    margin-left: 0;   
+   
+}
+
+.detailtaxyr{
+margin-bottom: .5rem;
+  margin-left: 0;   
+ 
+}
+
+.detailtax{
+  margin-bottom: .5rem;
+    margin-left: 0; 
+      
+  }
+
+
+
+
+.detailstorey{
+  margin-bottom: .5rem;
+    margin-left: 0; 
+     
+}
+
+.detailgeoq{
+  margin-bottom: .5rem;
+    margin-left: 0;  
+   
+}
+
+.detailwater{
+  margin-bottom: .5rem;
+    margin-left: 0;  
+   
+}
+
+
+
+.detailrealestatecenter{
+  margin-bottom: .5rem;
+    margin-left: 0; 
+     
+}
+
+.detailfeat{
+  margin-bottom: .5rem;
+    margin-left: 0; 
+   
+}
+
+.detailage{
+  margin-bottom: .5rem;
+    margin-left: 0; 
+   
+}
+
+.detailrealtor{
+  margin-bottom: .5rem;
+    margin-left: 0;  
+   
+}
+
+.detailrealtor{
+  margin-bottom: .5rem;
+    margin-left: 0;  
+  
+}
+
+.MLS{
+  margin-bottom: .5rem;
+    margin-left: 0;  
+  
+}
+
+.pool{
+  margin-bottom: .5rem;
+    margin-left: 0;  
+
+}
+
+.detaillaundrylevel{
+  margin-bottom: .5rem;
+    margin-left: 0;  
+ 
+}
+
+.detailinternet{
+  margin-bottom: .5rem;
+    margin-left: 0;  
+
+}
+
+.detailheat{
+  margin-bottom: .5rem;
+    margin-left: 0;  
+
+}
+
+.detailac{
+  margin-bottom: .5rem;
+    margin-left: 0;  
+}
+

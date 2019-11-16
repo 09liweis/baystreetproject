@@ -8,6 +8,7 @@ class App extends Component {
     super();
     this.state = {
       list:[],
+      view:'map',
       loading:false,
       filters:{search:''}
     };
@@ -113,7 +114,10 @@ class App extends Component {
       <div className="container">
         <div className="mapContainer">
           <div className="filterContainer">
+            <i className="fas fa-list-ul"></i>
+            <i className="fas fa-map"></i>
             <input className="search" placeholder="Search address" value={filters.search} onChange={this.handleSearch} />
+            <i className="fas fa-filter"></i>
           </div>
           <div id="map"></div>
         </div>

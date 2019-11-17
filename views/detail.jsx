@@ -30,7 +30,7 @@ class Detail extends React.Component {
 
           <div className="detailunt">{prop.unt}</div>
           <div className="dtitle2"></div> 
-          
+
           <div className="detailtotalbedrooms">
             <i class="fas fa-bed"></i>
             <span>{prop.tbdrms}</span>
@@ -39,7 +39,10 @@ class Detail extends React.Component {
            <i class="fas fa-shower"></i>
            <span>{prop.bthrms}</span>
           </div>
-          <div className="detailkitchen">Kitchen: {prop.kch}</div>
+          <div className="detailkitchen">
+          <i class="fas fa-hat-chef"></i>
+          <span>{prop.kch}</span>
+          </div>
           <div className="detailgarage">Total Garage: {prop.tgr}</div>
           <div className="detailtotalparkingspace">Total parking space:{prop.tot_park_spcs}</div>
           

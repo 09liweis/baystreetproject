@@ -97,7 +97,8 @@ body {
   justify-content: space-between;
 }
 .filterContainer .fas {
-  padding:15px;
+  padding:10px;
+  color:#2e7d32;
   border:1px solid #2e7d32;
 }
 .searchContainer {
@@ -178,8 +179,8 @@ body {
 }
 .marker {
 	position: relative;
-	background-color: #f4604c;
-	padding: 5px 7px;
+	background-color: #069803;
+	padding:2px 4px;
 	color: #fff;
 	overflow: inherit !important;
 	border-radius: 12px;
@@ -193,7 +194,7 @@ body {
   height: 0; 
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
-	border-top: 7px solid #f4604c;
+	border-top: 7px solid #069803;
 	bottom: -7px;
 	left: 0;
 	margin: auto;

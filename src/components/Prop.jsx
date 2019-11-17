@@ -32,8 +32,8 @@ class Prop extends Component {
           {p.dom?<div className="propDom">DOM: {p.dom}</div>:null}
         </div>
         <div className="propInfo">
+          <span className="propPrice">{getPrice(p)} {p.lpunt}</span>
           <div className="propAddr">{p.addr} {p.city} {p.prov} {p.zip} {p.cnty}</div>
-          <span className="propPrice">{getPrice(p)}</span>
         </div>
       </div>
     );

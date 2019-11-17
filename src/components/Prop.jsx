@@ -27,7 +27,7 @@ class Prop extends Component {
     }
     return (
       <div className="prop" onClick={this.gotoProp.bind(this)}>
-        <div className="propImg" style={{'background-image':'url('+img+')'}}>
+        <div className="propImg" style={{'backgroundImage':'url('+img+')'}}>
           <div className="propFeats">{feat}</div>
           {p.dom?<div className="propDom">DOM: {p.dom}</div>:null}
         </div>

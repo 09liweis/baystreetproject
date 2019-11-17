@@ -3,25 +3,30 @@
   color: black;
   margin-top: 40px;
   margin-left: 40px;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .detailCity {
   font-size: large;
   color: black;
   margin-left: 40px; 
+  font-family: 'Times New Roman', Times, serif;
 }
 .detailprov {
   font-size: large;
   color: black; 
+  font-family: 'Times New Roman', Times, serif;
 }
 .detailzip {
   font-size: large;
   color: black; 
+  font-family: 'Times New Roman', Times, serif;
 }
 .detailcrossstreet{
   font-size: small;
   color: black; 
   margin-left: 40px; 
+  font-family: 'Times New Roman', Times, serif;
 }
 .dtitle{
   width: 100%;
@@ -74,31 +79,31 @@
 .detailtotalbedrooms{
   margin-bottom: .5rem;
     margin-left: 0;  
-  
+    font-weight:bold;
   }
 
   .detailbathroom{
     margin-bottom: .5rem;
       margin-left: 0;  
-       
+      font-weight:bold;
     }
 
   .detailkitchen{
   margin-bottom: .5rem;
     margin-left: 0;   
-   
+    font-weight:bold;
   }
 
   .detailgarage{
     margin-bottom: .5rem;
       margin-left: 0; 
-        
+      font-weight:bold;   
     }
 
     .detailtotalparkingspace{
     margin-bottom: .5rem;
       margin-left: 0;  
-       
+      font-weight:bold; 
     }
 
 
@@ -127,19 +132,19 @@
 .detailsqft{
   margin-bottom: .5rem;
     margin-left: 0;   
-   
+    font-weight:bold;
 }
 
 .detailtaxyr{
 margin-bottom: .5rem;
   margin-left: 0;   
- 
+  font-weight:bold;
 }
 
 .detailtax{
   margin-bottom: .5rem;
     margin-left: 0; 
-      
+    font-weight:bold;  
   }
 
 
@@ -148,19 +153,19 @@ margin-bottom: .5rem;
 .detailstorey{
   margin-bottom: .5rem;
     margin-left: 0; 
-     
+    font-weight:bold; 
 }
 
 .detailgeoq{
   margin-bottom: .5rem;
     margin-left: 0;  
-   
+    font-weight:bold;
 }
 
 .detailwater{
   margin-bottom: .5rem;
     margin-left: 0;  
-   
+    font-weight:bold;
 }
 
 
@@ -168,65 +173,66 @@ margin-bottom: .5rem;
 .detailrealestatecenter{
   margin-bottom: .5rem;
     margin-left: 0; 
-     
+    font-weight:bold; 
 }
 
 .detailfeat{
   margin-bottom: .5rem;
     margin-left: 0; 
-   
+    font-weight:bold;
 }
 
 .detailage{
   margin-bottom: .5rem;
     margin-left: 0; 
-   
+    font-weight:bold;
 }
 
 .detailrealtor{
   margin-bottom: .5rem;
     margin-left: 0;  
-   
+    font-weight:bold;
 }
 
 .detailrealtor{
   margin-bottom: .5rem;
     margin-left: 0;  
-  
+    font-weight:bold;
 }
 
 .MLS{
   margin-bottom: .5rem;
     margin-left: 0;  
-  
+    font-weight:bold;
 }
 
 .pool{
   margin-bottom: .5rem;
     margin-left: 0;  
-
+    font-weight:bold;
 }
 
 .detaillaundrylevel{
   margin-bottom: .5rem;
     margin-left: 0;  
- 
+    font-weight:bold;
 }
 
 .detailinternet{
   margin-bottom: .5rem;
     margin-left: 0;  
-
+    font-weight:bold;
 }
 
 .detailheat{
   margin-bottom: .5rem;
     margin-left: 0;  
-
+    font-weight:bold;
 }
 
 .detailac{
   margin-bottom: .5rem;
-    margin-left: 0;  
+    margin-left: 0; 
+    font-weight:bold; 
 }
 

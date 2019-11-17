@@ -20,7 +20,6 @@ class Detail extends React.Component {
             <span className="detailzip">{prop.zip} </span>
             <div className="detailcrossstreet">{prop.crsst}</div>
             <div className="detaillisrdate">List Date:{prop.lstd}</div> 
-            <div className="dtitle"></div> 
           </div>
 
           <div className="detailPriceContainer">
@@ -28,37 +27,51 @@ class Detail extends React.Component {
             <div className="detailforsale">{prop.lpunt}</div>
           </div>
 
-          <div className="detailunt">{prop.unt}</div>
-          <div className="dtitle2"></div> 
-
-          <div className="detailtotalbedrooms">
-            <i class="fas fa-bed"></i>
-            <span>{prop.tbdrms}</span>
-          </div>
-          <div className="detailbathroom">
-           <i class="fas fa-shower"></i>
-           <span>{prop.bthrms}</span>
-          </div>
-          <div className="detailkitchen">
-          <i class="fas fa-hat-chef"></i>
-          <span>{prop.kch}</span>
-          </div>
-          <div className="detailgarage">Total Garage: {prop.tgr}</div>
-          <div className="detailtotalparkingspace">Total parking space:{prop.tot_park_spcs}</div>
           
-          <div className="dtitle1"></div> 
+          
+
+          <div className="detailIconContainer">
+          <span className="detailtotalbedrooms">
+            <i class="fas fa-bed"></i>
+            <b>{prop.tbdrms}</b>
+          </span>
+          <span className="detailbathroom">
+            <i class="fas fa-shower"></i>
+            <b>{prop.bthrms}</b>
+          </span>
+          <span className="detailkitchen">
+            <i class="fas fa-cauldron"></i>
+            <b>{prop.kch}</b>
+          </span>
+          
+          <span className="detailtotalparkingspace">
+            <i class="fas fa-parking"></i>
+            <b>{prop.tot_park_spcs}</b>
+          </span> 
+          </div>
+
+
+          <div className="detailtaxContainer">
           <div className="detailsqft">Square Feet:{prop.sqft1}</div>
           <div className="detailtaxyr">Tax Year:{prop.taxyr}</div>
-          <div className="detailtax">Tax: {prop.tax}</div>
-          <div className="dtitle2"></div> 
+          <div className="detailtax">Tax: ${prop.tax}</div>
+          </div> 
+          
+          
 
           
           
           
           
-          
-          <div className="detailstorey">Storey:{prop.pstyl}</div>
-          <div className="detailgeoq">Geoq: {prop.geoq}</div>
+          <div className="detaildetailContainer">
+          <dl className="detailstorey">
+            <dt>Storey:</dt>
+            <dd>{prop.pstyl}</dd>
+          </dl>
+          <dl className="detailstorey">
+            <dt>Geoq:</dt>
+            <dd>{prop.geoq}</dd>
+          </dl>
           <div className="detailwater">Water: {prop.water}</div>
           <div className="detailrealestatecenter">{prop.rltr}</div>
           <div className="detailfeat">{prop.feat}</div>
@@ -71,9 +84,9 @@ class Detail extends React.Component {
           <div className="detailinternet">Internet:{prop.internet}</div>
           <div className="detailheat">Heat:{prop.heat}</div>
           <div className="detailac">Air Condition:{prop.ac}</div>
+          </div>
 
-
-          <div className="dtitle2"></div> 
+          
           <div className="detaildetail">Detail Introduction：{prop.m}</div>
         </div>
       </DefaultLayout>

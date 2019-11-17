@@ -29,15 +29,6 @@
   text-align:right;
 }
 
-.dtitle{
-  width: 100%;
-  text-align: center;
-  border-top: 0px solid #e6e6e6;
-  border-bottom: 1px solid #e6e6e6;
-  border-right: none;
-  padding: .625rem 0;
-}
-
 
 
 .detailImgs {
@@ -52,9 +43,12 @@
 .detailPriceContainer{
   float: none;
   width: 100%;
+  text-align: center;
   margin: .5rem 0;
+  border-top: 0px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
+  border-right: none;
   padding: .625rem 0;
-  border-top: 0px solid
 }
 
 
@@ -74,164 +68,98 @@
   font-size: .875rem;
 }
 
+
+.detailIconContainer{
+  float: none;
+  width: 100%;
+  text-align: center;
+  margin: .5rem 0;
+  border-top: 0px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
+  border-right: none;
+  padding: .625rem 0;
+}
+
+
+
+
 .detailtotalbedrooms{
-  margin-bottom: .5rem;
-    margin-left: 0;  
-    font-weight:bold;
+  padding: 0;
+  text-align: center;
+  margin-left: 50pxpx;
   }
 
   .detailbathroom{
-    margin-bottom: .5rem;
-      margin-left: 0;  
-      font-weight:bold;
+    padding: 0;
+    text-align: center;
+    margin-left: 50px;
     }
 
   .detailkitchen{
-  margin-bottom: .5rem;
-    margin-left: 0;   
-    font-weight:bold;
+    padding: 0;
+    text-align: center;
+    margin-left: 50px;
   }
 
-  .detailgarage{
-    margin-bottom: .5rem;
-      margin-left: 0; 
-      font-weight:bold;   
-    }
-
+  
     .detailtotalparkingspace{
-    margin-bottom: .5rem;
-      margin-left: 0;  
-      font-weight:bold; 
+      padding: 0;
+      text-align: center;
+      margin-left: 50px;
     }
 
 
-.dtitle1{
+  .detailtaxContainer {
+    float: none;
   width: 100%;
-    text-align: center;
-    border-top: 1px solid #e6e6e6;
-    border-bottom: 0px solid #e6e6e6;
+  text-align: lefe;
+  margin: .5rem 0;
+  border-top: 0px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
+  border-right: none;
+  padding: .625rem 0;
+  font-size: .875rem;
+    line-height: 1.5rem;
+    color: #555;
+    text-align: left;
+  }
+
+  
+
+  .detaildetailContainer{
+    float: none;
+    width: 100%;
+    text-align: lefe;
+    margin: .5rem 0;
+    border-top: 0px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
     border-right: none;
     padding: .625rem 0;
-}
+    font-size: .875rem;
+      line-height: 1.5rem;
+      color: #555;
+      text-align: left;
 
-.dtitle2{
-  width: 100%;
-    text-align: center;
-    border-top: 1px solid #e6e6e6;
-    border-bottom: 0px solid #e6e6e6;
-    border-right: none;
-    padding: .625rem 0;
-}
-
-.detaildetail{
-  word-break:break-all; 
-  overflow:auto;
-}
-
-.detailsqft{
-  margin-bottom: .5rem;
-    margin-left: 0;   
-    font-weight:bold;
-}
-
-.detailtaxyr{
-margin-bottom: .5rem;
-  margin-left: 0;   
-  font-weight:bold;
-}
-
-.detailtax{
-  margin-bottom: .5rem;
-    margin-left: 0; 
-    font-weight:bold;  
   }
 
 
+  .detailstorey dt{
+    min-width: 6rem;
+    float: left;
+    font-weight: 400;
+    color: #999;
+    margin-right: .25rem;
+  }
+
+  .detailstorey dd{
+    width: calc(100% - 7rem);
+    float: left;
+    margin-bottom: .5rem;
+    margin-left: 0;
+    display: block;
+    margin-inline-start: 40px;
+    box-sizing: border-box;
+  }
 
 
-.detailstorey{
-  margin-bottom: .5rem;
-    margin-left: 0; 
-    font-weight:bold; 
-}
-
-.detailgeoq{
-  margin-bottom: .5rem;
-    margin-left: 0;  
-    font-weight:bold;
-}
-
-.detailwater{
-  margin-bottom: .5rem;
-    margin-left: 0;  
-    font-weight:bold;
-}
-
-
-
-.detailrealestatecenter{
-  margin-bottom: .5rem;
-    margin-left: 0; 
-    font-weight:bold; 
-}
-
-.detailfeat{
-  margin-bottom: .5rem;
-    margin-left: 0; 
-    font-weight:bold;
-}
-
-.detailage{
-  margin-bottom: .5rem;
-    margin-left: 0; 
-    font-weight:bold;
-}
-
-.detailrealtor{
-  margin-bottom: .5rem;
-    margin-left: 0;  
-    font-weight:bold;
-}
-
-.detailrealtor{
-  margin-bottom: .5rem;
-    margin-left: 0;  
-    font-weight:bold;
-}
-
-.MLS{
-  margin-bottom: .5rem;
-    margin-left: 0;  
-    font-weight:bold;
-}
-
-.pool{
-  margin-bottom: .5rem;
-    margin-left: 0;  
-    font-weight:bold;
-}
-
-.detaillaundrylevel{
-  margin-bottom: .5rem;
-    margin-left: 0;  
-    font-weight:bold;
-}
-
-.detailinternet{
-  margin-bottom: .5rem;
-    margin-left: 0;  
-    font-weight:bold;
-}
-
-.detailheat{
-  margin-bottom: .5rem;
-    margin-left: 0;  
-    font-weight:bold;
-}
-
-.detailac{
-  margin-bottom: .5rem;
-    margin-left: 0; 
-    font-weight:bold; 
-}
 

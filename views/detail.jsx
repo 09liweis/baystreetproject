@@ -10,28 +10,39 @@ class Detail extends React.Component {
     return (
       <DefaultLayout title={prop.addr} page={'detail'}>
         <div className="detailPage">
-          <div className="detailAddress">{prop.addr}</div>
-          <div className="">
-            <span className="detailCity">{prop.city}, </span>
-            <span className="detailprov">{prop.prov}, </span>
-            <span className="detailzip">{prop.zip} </span>
-          <div className="detailcrossstreet">{prop.crsst}</div>
-          <div className="dtitle"></div> 
-          <div className="detaillisrdate">List Date:{prop.lstd}</div> 
-          </div>
           <div className="detailImgs">
             {imgs}
           </div>
-          <div className="">
-          <span className="detailprice">${prop.lp}</span>
-          <span className="detailforsale">{prop.lpunt}</span>
+          <div className="detailAddrContainer">
+            <div className="detailAddress">{prop.addr}</div>
+            <span className="detailCity">{prop.city}, </span>
+            <span className="detailprov">{prop.prov}, </span>
+            <span className="detailzip">{prop.zip} </span>
+            <div className="detailcrossstreet">{prop.crsst}</div>
+            <div className="detaillisrdate">List Date:{prop.lstd}</div> 
+            <div className="dtitle"></div> 
           </div>
-          <div className="detailunt">{prop.unt}</div>
 
+          <div className="detailPriceContainer">
+            <div className="detailprice">${prop.lp}</div>
+            <div className="detailforsale">{prop.lpunt}</div>
+          </div>
+
+          <div className="detailunt">{prop.unt}</div>
           <div className="dtitle2"></div> 
-          <div className="detailtotalbedrooms">Total Bedrooms: {prop.tbdrms}</div>
-          <div className="detailbathroom">Bathroom: {prop.bthrms}</div>
-          <div className="detailkitchen">Kitchen: {prop.kch}</div>
+
+          <div className="detailtotalbedrooms">
+            <i class="fas fa-bed"></i>
+            <span>{prop.tbdrms}</span>
+          </div>
+          <div className="detailbathroom">
+           <i class="fas fa-shower"></i>
+           <span>{prop.bthrms}</span>
+          </div>
+          <div className="detailkitchen">
+          <i class="fas fa-hat-chef"></i>
+          <span>{prop.kch}</span>
+          </div>
           <div className="detailgarage">Total Garage: {prop.tgr}</div>
           <div className="detailtotalparkingspace">Total parking space:{prop.tot_park_spcs}</div>
           

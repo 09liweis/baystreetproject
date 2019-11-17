@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const Prop = require('../models/prop');
-const Prov = require('../models/prov');
+// const Prov = require('../models/prov');
 const listingPicUrls = require('../helpers/prop');
 
 const fields = 'sid his addr ptype2 photonumbers pho phosrc ddfID picUrl phomt saletp city prov lp sp lat lng status bdrms bthrms gr zip';

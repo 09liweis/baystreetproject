@@ -19,7 +19,7 @@ router.route('/')
     query.lat = {$lt:neLat,$gt:swLat};
     query.lng = {$lt:neLng,$gt:swLng};
   }
-  Prop.find(query,'', {limit:20}).sort('-ts').exec((err, props) => {
+  Prop.find(query,'', {limit:50}).sort('-ts').exec((err, props) => {
     for(let i in props) {
       let p = props[i];
       props[i].photos = listingPicUrls(p,false);

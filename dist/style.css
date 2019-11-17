@@ -37,7 +37,18 @@ body {
   display: flex;
 }
 .filterContainer {
-  margin-bottom: 10px;
+  display:flex;
+  margin: 10px;
+  justify-content: space-between;
+}
+.filterContainer .fas {
+  padding:15px;
+  border:1px solid #2e7d32;
+}
+.searchContainer {
+  display:flex;
+  flex:1;
+  margin:0 10px;
 }
 .search {
   padding:10px;

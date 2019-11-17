@@ -104,27 +104,35 @@ class App extends Component {
     },1000)
   }
   render() {
-    const {loading,list,filters} = this.state;
+    const {loading,list,filters,view} = this.state;
     let propsView = list.map((p)=>{
       return (
         <Prop key={p.sid} p={p}/>
       )
-    })
+    });
+    let viewIcon = 'fas fa-list-url';
+    if (view == 'map') {
+      viewIcon = 'fas fa-map';
+    }
     return (
-      <div className="container">
-        <div className="mapContainer">
-          <div className="filterContainer">
-            <i className="fas fa-list-ul"></i>
-            <i className="fas fa-map"></i>
+      <section>
+        <div className="filterContainer">
+          <i className={viewIcon}></i>
+          <div className="searchContainer">
             <input className="search" placeholder="Search address" value={filters.search} onChange={this.handleSearch} />
-            <i className="fas fa-filter"></i>
+            <i className="fas fa-search"></i>
           </div>
-          <div id="map"></div>
+          <i className="fas fa-filter"></i>
         </div>
-        <div className="propList">
-          {loading?'Loading':propsView}
+        <div className="container">
+          <div className="mapContainer">
+            <div id="map"></div>
+          </div>
+          <div className="propList">
+            {loading?'Loading':propsView}
+          </div>
         </div>
-      </div>
+      </section>
     );
   }
 }

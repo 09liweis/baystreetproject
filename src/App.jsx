@@ -103,6 +103,13 @@ class App extends Component {
       this.getProps();
     },1000)
   }
+  changeView(view) {
+    if (view == 'map') {
+      this.setState({view:'list'});
+    } else {
+      this.setState({view:'map'});
+    }
+  }
   render() {
     const {loading,list,filters,view} = this.state;
     let propsView = list.map((p)=>{
@@ -110,14 +117,20 @@ class App extends Component {
         <Prop key={p.sid} p={p}/>
       )
     });
-    let viewIcon = 'fas fa-list-url';
+    let viewIcon = 'fas fa-list-ul';
+    let mapClass,listClass;
     if (view == 'map') {
       viewIcon = 'fas fa-map';
+      mapClass = 'block';
+      listClass = 'hide';
+    } else {
+      mapClass = 'hide';
+      listClass = 'block';
     }
     return (
       <section>
         <div className="filterContainer">
-          <i className={viewIcon}></i>
+          <i className={viewIcon} onClick={()=>this.changeView(view)}></i>
           <div className="searchContainer">
             <input className="search" placeholder="Search address" value={filters.search} onChange={this.handleSearch} />
             <i className="fas fa-search"></i>
@@ -125,10 +138,10 @@ class App extends Component {
           <i className="fas fa-filter"></i>
         </div>
         <div className="container">
-          <div className="mapContainer">
+          <div id="mapContainer" className={mapClass}>
             <div id="map"></div>
           </div>
-          <div className="propList">
+          <div id="propList" className={listClass}>
             {loading?'Loading':propsView}
           </div>
         </div>

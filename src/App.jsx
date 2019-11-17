@@ -71,8 +71,8 @@ class App extends Component {
     this.map = new mapboxgl.Map({
       container: 'map', // container id
       style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
-      center: [-79.8943043333333, 43.495693], // starting position [lng, lat]
-      zoom: 9 // starting zoom
+      center: [-79.3832, 43.6532], // starting position [lng, lat]
+      zoom: 11 // starting zoom
     });
     this.map.on('dragend',(e)=>{
       this.fitBound = false;
@@ -117,10 +117,10 @@ class App extends Component {
         <Prop key={p.sid} p={p}/>
       )
     });
-    let viewIcon = 'fas fa-list-ul';
+    let viewIcon = 'fas fa-map';
     let mapClass,listClass;
     if (view == 'map') {
-      viewIcon = 'fas fa-map';
+      viewIcon = 'fas fa-list-ul';
       mapClass = 'block';
       listClass = 'hide';
     } else {

@@ -21,37 +21,37 @@ class Detail extends React.Component {
              <div className="detailcrossstreet">{prop.crsst}</div>
           </div>
 
-          <div className="detailPriceContainer">
+          <div className="detailPriceContainer detailBlock">
              <div className="detailprice">${prop.lp}</div>
              <div className="detailforsale">{prop.lpunt}</div>
           </div>
 
           
           <div className="detailIconContainer">
-          <span className="detailtotalbedrooms">
-            <i class="fas fa-bed"></i>
-            <b>{prop.tbdrms}</b>
-          </span>
-          <span className="detailbathroom">
-            <i class="fas fa-shower"></i>
-            <b>{prop.bthrms}</b>
-          </span>
-          {(prop.kch)?
-          <span className="detailkitchen">
-            <i class="fas fa-blender"></i>
-            <b>{prop.kch}</b>
-          </span>
-          :null}
-          {(prop.tot_park_spcs)?
-          <span className="detailtotalparkingspace">
-            <i class="fas fa-parking"></i>
-            <b>{prop.tot_park_spcs}</b>
-          </span> 
-          :null}
+            <span className="detailtotalbedrooms detailRoom">
+              <i class="fas fa-bed"></i>
+              <b>{prop.tbdrms}</b>
+            </span>
+            <span className="detailbathroom detailRoom">
+              <i class="fas fa-shower"></i>
+              <b>{prop.bthrms}</b>
+            </span>
+            {(prop.kch)?
+            <span className="detailkitchen detailRoom">
+              <i class="fas fa-blender"></i>
+              <b>{prop.kch}</b>
+            </span>
+            :null}
+            {(prop.tot_park_spcs)?
+            <span className="detailtotalparkingspace detailRoom">
+              <i class="fas fa-parking"></i>
+              <b>{prop.tot_park_spcs}</b>
+            </span> 
+            :null}
           </div>
 
 
-          <div className="detailtaxContainer">
+          <div className="detailtaxContainer detailBlock">
           {(prop.sqft1)?
           <dl className="detailstorey">
             <dt>Square Feet:</dt>
@@ -70,7 +70,7 @@ class Detail extends React.Component {
           
         
           
-          <div className="detaildetailContainer">
+          <div className="detaildetailContainer detailBlock">
           {(prop.lstd)?
           <dl className="detailstorey">
             <dt>List Date:</dt>
@@ -83,20 +83,24 @@ class Detail extends React.Component {
             <dd>{prop.pstyl}</dd>
           </dl>
           :null}
+          {(prop.geoq)?
           <dl className="detailstorey">
             <dt>Geoq:</dt>
             <dd>{prop.geoq}</dd>
           </dl>
+          :null}
           {(prop.water)?
           <dl className="detailstorey">
             <dt>Water:</dt>
             <dd>{prop.water}</dd>
           </dl>
           :null}
+          {(prop.rltr)?
           <dl className="detailstorey">
             <dt>Center:</dt>
             <dd>{prop.rltr}</dd>
           </dl>
+          :null}
           {(prop.feat)?
           <dl className="detailstorey">
             <dt>Feat:</dt>
@@ -109,10 +113,12 @@ class Detail extends React.Component {
             <dd>{prop.age}</dd>
           </dl>
           :null}
+          {(prop.rltr)?
           <dl className="detailstorey">
             <dt>Realtor:</dt>
             <dd>{prop.rltr}</dd>
           </dl>
+          :null}
           {(prop.sewer)?
           <dl className="detailstorey">
             <dt>Sewer:</dt>
@@ -157,8 +163,10 @@ class Detail extends React.Component {
           :null}
           </div>
 
-          <div className="detailIntroContaioner">
-          <div className="detaildetail">Detail Introduction：{prop.m}</div>
+          <div className="detailIntroContaioner detailBlock">
+          <div className="detaildetail">
+            <b>Detail Introduction：</b>
+            {prop.m}</div>
           </div>
         </div>
       </DefaultLayout>

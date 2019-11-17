@@ -1,3 +1,8 @@
+.detailBlock {
+  border-bottom: 1px solid #e6e6e6;
+  padding:10px;
+  margin-bottom: 10px;
+}
 .detailAddrContainer {
   font-family: 'Times New Roman', Times, serif;
   text-align:center;
@@ -16,6 +21,7 @@
 }
 
 .detailImgs {
+  overflow-y:scroll;
   display: flex;
   flex-direction:row; 
   width: 100%;
@@ -27,11 +33,7 @@
   float: none;
   width: 100%;
   text-align: center;
-  margin: .5rem 0;
-  border-top: 1px solid #e6e6e6;
-  border-bottom: 1px solid #e6e6e6;
   border-right: none;
-  padding: .625rem 0;
 }
 
 
@@ -63,17 +65,15 @@
   border-right: none;
   padding: .625rem 0;
 }
+.detailRoom {
+  flex:auto;
+}
 
 .detailtaxContainer{
   float: none;
   width: 100%;
   text-align: left;
-  margin: .5rem 0;
-  border-top: 0px solid #e6e6e6;
-  border-bottom: 1px solid #e6e6e6;
   border-right: none;
-  padding: .625rem 0;
-
 }
 
 
@@ -81,11 +81,7 @@
   float: none;
   width: 100%;
   text-align: left;
-  margin: .5rem 0;
-  border-top: 1px solid #e6e6e6;
-  border-bottom: 1px solid #e6e6e6;
   border-right: none;
-  padding: .625rem 0;
   }
 
   .detailstorey{
@@ -93,8 +89,7 @@
     overflow: hidden;
     height: auto;
     min-height: 2.25rem;
-    float: left;
-    display: inline;
+    display: inline-block;
     margin: 0;
   }
   .detailstorey dt{
@@ -117,13 +112,6 @@
   float: none;
   width: 100%;
   text-align: left;
-  margin: .5rem 0;
-  border-top: 0px solid #e6e6e6;
-  border-bottom: 0px solid #e6e6e6;
   border-right: none;
-  padding: .625rem 0;
-  font-size: .875rem;
-    line-height: 1.5rem;
-    color: #555;
 
 }

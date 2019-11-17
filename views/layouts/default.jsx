@@ -30,7 +30,6 @@ class DefaultLayout extends React.Component {
             </div>
           </header>
           <main id="main">{this.props.children}</main>
-          <footer>Footer</footer>
         </body>
       </html>
     );

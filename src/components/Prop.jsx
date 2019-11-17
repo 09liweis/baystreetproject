@@ -16,15 +16,25 @@ class Prop extends Component {
   }
   render() {
     const {p} = this.props;
-    let img;
+    let img,feat;
     if (p.photos.length > 0) {
       img = p.photos[0];
     }
+    if (p.feat) {
+      feat = p.feat.map((f)=>
+        <span key={f} className="propFeat">{f}</span>
+      );
+    }
     return (
       <div className="prop" onClick={this.gotoProp.bind(this)}>
-        <img className="propImg" src={img}/>
-        <div>{p.addr}</div>
-        <span className="propPrice">{getPrice(p)}</span>
+        <div className="propImg" style={{'background-image':'url('+img+')'}}>
+          <div className="propFeats">{feat}</div>
+          {p.dom?<div className="propDom">DOM: {p.dom}</div>:null}
+        </div>
+        <div className="propInfo">
+          <div className="propAddr">{p.addr} {p.city} {p.prov} {p.zip} {p.cnty}</div>
+          <span className="propPrice">{getPrice(p)}</span>
+        </div>
       </div>
     );
   }

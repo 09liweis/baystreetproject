@@ -2,34 +2,18 @@
   font-family: 'Times New Roman', Times, serif;
   text-align:center;
   padding: .625rem 0;
+  font-size: .875rem;
+  color:#999;
 }
 .detailAddress {
   font-size:1.375rem;
-}
-.detailCity {
-  font-size: .875rem;
-  color:#999;
-
-}
-.detailprov {
-  font-size: .875rem; 
-  color:#999;
-}
-.detailzip {
-  font-size: .875rem;
-  color:#999;
-}
-.detailcrossstreet{
-  font-size: .875rem;
-  color:#999;
+  color:black;
 }
 
 .detaillisrdate{
   position: relative;
   text-align:right;
 }
-
-
 
 .detailImgs {
   display: flex;
@@ -39,13 +23,12 @@
   position: relative;
 }
 
-
 .detailPriceContainer{
   float: none;
   width: 100%;
   text-align: center;
   margin: .5rem 0;
-  border-top: 0px solid #e6e6e6;
+  border-top: 1px solid #e6e6e6;
   border-bottom: 1px solid #e6e6e6;
   border-right: none;
   padding: .625rem 0;
@@ -70,6 +53,7 @@
 
 
 .detailIconContainer{
+  display: flex;
   float: none;
   width: 100%;
   text-align: center;
@@ -80,69 +64,39 @@
   padding: .625rem 0;
 }
 
-
-
-
-.detailtotalbedrooms{
-  padding: 0;
-  text-align: center;
-  margin-left: 50pxpx;
-  }
-
-  .detailbathroom{
-    padding: 0;
-    text-align: center;
-    margin-left: 50px;
-    }
-
-  .detailkitchen{
-    padding: 0;
-    text-align: center;
-    margin-left: 50px;
-  }
-
-  
-    .detailtotalparkingspace{
-      padding: 0;
-      text-align: center;
-      margin-left: 50px;
-    }
-
-
-  .detailtaxContainer {
-    float: none;
+.detailtaxContainer{
+  float: none;
   width: 100%;
-  text-align: lefe;
+  text-align: left;
   margin: .5rem 0;
   border-top: 0px solid #e6e6e6;
   border-bottom: 1px solid #e6e6e6;
   border-right: none;
   padding: .625rem 0;
-  font-size: .875rem;
-    line-height: 1.5rem;
-    color: #555;
-    text-align: left;
+
+}
+
+
+.detaildetailContainer{
+  float: none;
+  width: 100%;
+  text-align: left;
+  margin: .5rem 0;
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
+  border-right: none;
+  padding: .625rem 0;
   }
 
-  
-
-  .detaildetailContainer{
-    float: none;
+  .detailstorey{
     width: 100%;
-    text-align: lefe;
-    margin: .5rem 0;
-    border-top: 0px solid #e6e6e6;
-    border-bottom: 1px solid #e6e6e6;
-    border-right: none;
-    padding: .625rem 0;
-    font-size: .875rem;
-      line-height: 1.5rem;
-      color: #555;
-      text-align: left;
-
+    overflow: hidden;
+    height: auto;
+    min-height: 2.25rem;
+    float: left;
+    display: inline;
+    margin: 0;
   }
-
-
   .detailstorey dt{
     min-width: 6rem;
     float: left;
@@ -156,10 +110,20 @@
     float: left;
     margin-bottom: .5rem;
     margin-left: 0;
-    display: block;
-    margin-inline-start: 40px;
-    box-sizing: border-box;
   }
 
 
+.detailIntroContaioner{
+  float: none;
+  width: 100%;
+  text-align: left;
+  margin: .5rem 0;
+  border-top: 0px solid #e6e6e6;
+  border-bottom: 0px solid #e6e6e6;
+  border-right: none;
+  padding: .625rem 0;
+  font-size: .875rem;
+    line-height: 1.5rem;
+    color: #555;
 
+}

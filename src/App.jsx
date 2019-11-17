@@ -10,6 +10,7 @@ class App extends Component {
       list:[],
       view:'map',
       loading:false,
+      popup:{},
       filters:{search:''}
     };
     this.handleSearch = this.handleSearch.bind(this);
@@ -56,6 +57,10 @@ class App extends Component {
       el.className = 'marker';
       el.setAttribute('id', p.sid);
       el.innerHTML = getPrice(p);
+      el.addEventListener('click',()=>{
+        this.setState({popup:p});
+      }
+    ); 
       var marker = new mapboxgl.Marker(el)
       .setLngLat(pos)
       .addTo(this.map);
@@ -110,8 +115,11 @@ class App extends Component {
       this.setState({view:'map'});
     }
   }
+  closePopup() {
+    this.setState({popup:{}});
+  }
   render() {
-    const {loading,list,filters,view} = this.state;
+    const {loading,list,filters,view,popup} = this.state;
     let propsView = list.map((p)=>{
       return (
         <Prop key={p.sid} p={p}/>
@@ -128,7 +136,16 @@ class App extends Component {
       listClass = 'block';
     }
     return (
-      <section>
+      <section className="listPage">
+        {popup.sid?
+        <React.Fragment>
+          <div className="popupBg" onClick={()=>this.closePopup()}></div>
+          <div className="popup">
+            <i className="fa fa-times" onClick={()=>this.closePopup()}></i>
+            <Prop p={popup}/>
+          </div>
+        </React.Fragment>
+        :null}
         <div className="filterContainer">
           <i className={viewIcon} onClick={()=>this.changeView(view)}></i>
           <div className="searchContainer">

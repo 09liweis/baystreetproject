@@ -5,7 +5,7 @@ class Stats extends React.Component {
   render() {
     const {title} = this.props;
     return (
-      <DefaultLayout title={title}>
+      <DefaultLayout title={title} page={'stats'}>
         <div className="statsPage">
           <h2>Toronto</h2>
           <p>The trade volume at Toronto last year is 566, and the average price is

@@ -8,41 +8,166 @@ class Detail extends React.Component {
       <img className="img" src={img}/>
     );
     return (
-      <DefaultLayout title={prop.addr}>
+      <DefaultLayout title={prop.addr} page={'detail'}>
         <div className="detailPage">
-          <div className="detailAddress">{prop.addr}</div>
-          <div className="">
-            <span className="detailCity">{prop.city}, </span>
-            <span className="detailprov">{prop.prov}, </span>
-            <span className="detailzip">{prop.zip} </span>
-          <div className="dtitle"></div> 
-          <div className="detaillstd">List Date:{prop.lstd}</div> 
-          </div>
           <div className="detailImgs">
             {imgs}
           </div>
-          <div className="">
-          <span className="detaillp">${prop.lp}</span>
-          <span className="detailpunt">{prop.lpunt}</span>
+          <div className="detailAddrContainer">
+             <div className="detailAddress">{prop.addr}</div>
+             <span className="detailCity">{prop.city}, </span>
+             <span className="detailprov">{prop.prov}, </span>
+             <span className="detailzip">{prop.zip} </span>
+             <div className="detailcrossstreet">{prop.crsst}</div>
           </div>
-          <div className="detailunt">{prop.unt}</div>
+
+          <div className="detailPriceContainer detailBlock">
+             <div className="detailprice">${prop.lp}</div>
+             <div className="detailforsale">{prop.lpunt}</div>
+          </div>
+
           
-          <div className="detailtax">{prop.tax}</div>
-          <div className="detailtaxyr">{prop.taxyr}</div>
-          <div className="detailstorey">{prop.pstyl}</div>
-          <div className="detailtotalparkingspace">{prop.tot_park_spcs}</div>
-          <div className="detailtp">{prop.ltp}</div>
+          <div className="detailIconContainer">
+            <span className="detailtotalbedrooms detailRoom">
+              <i class="fas fa-bed"></i>
+              <b>{prop.tbdrms}</b>
+            </span>
+            <span className="detailbathroom detailRoom">
+              <i class="fas fa-shower"></i>
+              <b>{prop.bthrms}</b>
+            </span>
+            {(prop.kch)?
+            <span className="detailkitchen detailRoom">
+              <i class="fas fa-blender"></i>
+              <b>{prop.kch}</b>
+            </span>
+            :null}
+            {(prop.tot_park_spcs)?
+            <span className="detailtotalparkingspace detailRoom">
+              <i class="fas fa-parking"></i>
+              <b>{prop.tot_park_spcs}</b>
+            </span> 
+            :null}
+          </div>
+
+
+          <div className="detailtaxContainer detailBlock">
+          {(prop.sqft1)?
+          <dl className="detailstorey">
+            <dt>Square Feet:</dt>
+            <dd>{prop.sqft1}</dd>
+          </dl>
+          :null}
+          <dl className="detailstorey">
+            <dt>Tax Year:</dt>
+            <dd>{prop.taxyr}</dd>
+          </dl>
+          <dl className="detailstorey">
+            <dt>Tax: $</dt>
+            <dd>{prop.tax}</dd>
+          </dl>
+          </div> 
           
+        
           
-          <div className="detailCmty">{prop.cmty}</div>
-          <div className="detailbedroom">Bedroom: {prop.bdrms}</div>
-          <div className="detailbathroom">Bathroom: {prop.bthrms}</div>
-          <div className="detailtotalbedrooms">Total Bedrooms: {prop.tbdrms}</div>
-          <div className="detailgarage">Garage: {prop.tgr}</div>
-          <div className="detailgeoq">Geoq: {prop.geoq}</div>
-          <div className="detailwater">Water: {prop.water}</div>
-          <div className="detailrealestatecenter">{prop.rltr}</div>
-          <div className="detailcrossstreet">{prop.crsst}</div>
+          <div className="detaildetailContainer detailBlock">
+          {(prop.lstd)?
+          <dl className="detailstorey">
+            <dt>List Date:</dt>
+            <dd>{prop.lstd}</dd>
+          </dl>
+          :null}
+          {(prop.pstyl)?
+          <dl className="detailstorey">
+            <dt>Storey:</dt>
+            <dd>{prop.pstyl}</dd>
+          </dl>
+          :null}
+          {(prop.geoq)?
+          <dl className="detailstorey">
+            <dt>Geoq:</dt>
+            <dd>{prop.geoq}</dd>
+          </dl>
+          :null}
+          {(prop.water)?
+          <dl className="detailstorey">
+            <dt>Water:</dt>
+            <dd>{prop.water}</dd>
+          </dl>
+          :null}
+          {(prop.rltr)?
+          <dl className="detailstorey">
+            <dt>Center:</dt>
+            <dd>{prop.rltr}</dd>
+          </dl>
+          :null}
+          {(prop.feat)?
+          <dl className="detailstorey">
+            <dt>Feat:</dt>
+            <dd>{prop.feat}</dd>
+          </dl>
+          :null}
+          {(prop.age)?
+          <dl className="detailstorey">
+            <dt>Age:</dt>
+            <dd>{prop.age}</dd>
+          </dl>
+          :null}
+          {(prop.rltr)?
+          <dl className="detailstorey">
+            <dt>Realtor:</dt>
+            <dd>{prop.rltr}</dd>
+          </dl>
+          :null}
+          {(prop.sewer)?
+          <dl className="detailstorey">
+            <dt>Sewer:</dt>
+            <dd>{prop.sewer}</dd>
+          </dl>
+          :null}
+          {(prop.sid)?
+          <dl className="detailstorey">
+            <dt>MLS#:</dt>
+            <dd>{prop.sid}</dd>
+          </dl>
+          :null}
+          {(prop.pool)?
+          <dl className="detailstorey">
+            <dt>Pool:</dt>
+            <dd>{prop.pool}</dd>
+          </dl>
+          :null}
+          {(prop.laundry_lev)?
+          <dl className="detailstorey">
+            <dt>Laundry level:</dt>
+            <dd>{prop.laundry_lev}</dd>
+          </dl>
+           :null}
+            {(prop.internet)?
+          <dl className="detailstorey">
+            <dt>Internet:</dt>
+            <dd>{prop.internet}</dd>
+          </dl>
+           :null}
+           {(prop.heat)?
+          <dl className="detailstorey">
+            <dt>Heat:</dt>
+            <dd>{prop.heat}</dd>
+          </dl>
+          :null}
+          {(prop.ac)?
+          <dl className="detailstorey">
+            <dt>Air Condition:</dt>
+            <dd>{prop.ac}</dd>
+          </dl>
+          :null}
+          </div>
+
+          <div className="detailIntroContaioner detailBlock">
+          <div className="detaildetail">
+            <b>Detail Introduction：</b>
+            {prop.m}</div>
+          </div>
         </div>
       </DefaultLayout>
     )

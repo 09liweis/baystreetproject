@@ -2,6 +2,10 @@ var React = require('react');
 
 class DefaultLayout extends React.Component {
   render() {
+    let pageStyleSheet;
+    if (this.props.page) {
+      pageStyleSheet = <link rel="stylesheet" href={"/dist/"+this.props.page+".css"} type="text/css" />
+    }
     return (
       <html>
         <head>
@@ -10,7 +14,7 @@ class DefaultLayout extends React.Component {
           <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
           <meta httpEquiv="X-UA-Compatible" content="ie=edge"/>
           <link rel="stylesheet" href="/dist/style.css" type="text/css" />
-          <link rel="stylesheet" href="/dist/detail.css" type="text/css" />
+          {pageStyleSheet}
           <script src="https://kit.fontawesome.com/76b75c48c1.js" crossorigin="anonymous"></script>
           <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"/>
           <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
@@ -26,7 +30,6 @@ class DefaultLayout extends React.Component {
             </div>
           </header>
           <main id="main">{this.props.children}</main>
-          <footer>Footer</footer>
         </body>
       </html>
     );

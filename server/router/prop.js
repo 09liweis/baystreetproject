@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const Prop = require('../models/prop');
-// const Prov = require('../models/prov');
+const Stat = require('../models/stat');
 const listingPicUrls = require('../helpers/prop');
 
 router.route('/')
@@ -17,6 +17,11 @@ router.route('/')
     const neLat = filters.bbox[3]
     query.lat = {$lt:neLat,$gt:swLat};
     query.lng = {$lt:neLng,$gt:swLng};
+  }
+  if (filters.city) {
+    query.city = filters.city;
+    delete query.lat
+    delete query.lng
   }
   if (filters.ptype2) {
     query.ptype2 = {$in:[filters.ptype2]};
@@ -38,6 +43,11 @@ router.route('/')
     res.status(200).json(props);
 	});
 });
+router.route('/cities').get((req,res)=>{
+  Stat.distinct('city',(err,cities)=>{
+    res.status(200).json(cities);
+  })
+})
 router.route('/importCity').get((req,res)=>{
   Prop.find({},'prov city').exec((err,props)=>{
     let provs = {};

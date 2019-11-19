@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const Prop = require('../models/prop');
+const Stat = require('../models/stat');
 const listingPicUrls = require('../helpers/prop');
 
 router.route('/')
@@ -8,7 +9,9 @@ router.route('/')
   res.render('index', {title:'Bay Street Project' });
 })
 router.route('/stats').get((req,res)=>{
-  res.render('stats',{title:'Stats'});
+  Stat.find({},(err,stats)=>{
+    res.render('stats',{title:'Stats',stats});
+  });
 });
 router.route('/login').get((req,res)=>{
   res.render('login',{title:'Login Page'});

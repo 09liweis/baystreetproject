@@ -14,6 +14,7 @@ class App extends Component {
       popup:{},
       filters:{search:'',ptype2:''},
       showFilter:false,
+      cities:[]
     };
     this.handleSearch = this.handleSearch.bind(this);
     this.updateFilter = this.updateFilter.bind(this);
@@ -22,6 +23,16 @@ class App extends Component {
   componentDidMount() {
     this.fitBound = true;
     this.setMap();
+    this.getCities();
+  }
+  getCities() {
+    fetch('/api/prop/cities',{
+      method:'get',
+      headers: {'Content-Type':'application/json'}
+    }).then(res=>res.json())
+    .then(ret=>{
+      this.setState({cities:ret});
+    })
   }
   getProps() {
     this.setState({loading:true});
@@ -73,6 +84,7 @@ class App extends Component {
     }
     if (this.fitBound){
       this.map.fitBounds(bounds)
+      this.fitBound = false;
     }
   }
   setMap() {
@@ -117,6 +129,9 @@ class App extends Component {
     const val = e.target.value;
     let {filters} = this.state;
     filters[filter] = val;
+    if (filters.city) {
+      this.fitBound = true;
+    }
     this.setState({filters});
   }
   changeView(view) {
@@ -149,7 +164,7 @@ class App extends Component {
     }
   }
   render() {
-    const {loading,list,filters,view,popup,showFilter} = this.state;
+    const {loading,list,filters,view,popup,showFilter,cities} = this.state;
     let propsView = list.map((p)=>{
       return (
         <Prop key={p.sid} p={p}/>
@@ -165,6 +180,9 @@ class App extends Component {
       mapClass = 'hide';
       listClass = 'block';
     }
+    const citiesView = cities.map((c)=>
+      <option value={c} key={c}>{c}</option>
+    )
     const rooms = [1,2,3,4,5].map((r)=>
       <option value={r} key={r}>{r}</option>
     );
@@ -190,6 +208,13 @@ class App extends Component {
         <div className="container">
           {showFilter?
             <div className="filterPopup">
+              <div className="filterGroup">
+                <label className="filterLabel">City</label>
+                <select className="filterInput" name="city" onChange={this.updateFilter} value={filters.city}>
+                  <option value="">Select a city</option>
+                  {citiesView}
+                </select>
+              </div>
               <div className="filterGroup">
                 <label className="filterLabel">Prop Style</label>
                 <select className="filterInput" name="ptype2" onChange={this.updateFilter} value={filters.ptype2}>

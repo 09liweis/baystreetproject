@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import Prop from './components/Prop.jsx';
+import Loading from './components/Loading.jsx';
 import {getPrice} from './util.js'
 var markers = [];
 class App extends Component {
@@ -11,16 +12,19 @@ class App extends Component {
       view:'map',
       loading:false,
       popup:{},
-      filters:{search:''}
+      filters:{search:'',ptype2:''},
+      showFilter:false,
     };
     this.handleSearch = this.handleSearch.bind(this);
+    this.updateFilter = this.updateFilter.bind(this);
+    this.handleFilter = this.handleFilter.bind(this);
   }
   componentDidMount() {
     this.fitBound = true;
-    this.setState({loading:true});
     this.setMap();
   }
   getProps() {
+    this.setState({loading:true});
     const bnds = this.map.getBounds();
     const ne = bnds.getNorthEast()
     const sw = bnds.getSouthWest()
@@ -108,6 +112,13 @@ class App extends Component {
       this.getProps();
     },1000)
   }
+  updateFilter(e) {
+    const filter = e.target.name;
+    const val = e.target.value;
+    let {filters} = this.state;
+    filters[filter] = val;
+    this.setState({filters});
+  }
   changeView(view) {
     if (view == 'map') {
       this.setState({view:'list'});
@@ -118,8 +129,27 @@ class App extends Component {
   closePopup() {
     this.setState({popup:{}});
   }
+  toggleFilter() {
+    this.setState({showFilter:!this.state.showFilter});
+  }
+  handleFilter(opt) {
+    switch(opt) {
+      case 'search':
+        this.setState({showFilter:false});
+        this.getProps();
+        break;
+      case 'cancel':
+        this.setState({showFilter:false});
+        break;
+      case 'reset':
+        this.setState({filters:{}});
+        break;
+      default:
+        break;
+    }
+  }
   render() {
-    const {loading,list,filters,view,popup} = this.state;
+    const {loading,list,filters,view,popup,showFilter} = this.state;
     let propsView = list.map((p)=>{
       return (
         <Prop key={p.sid} p={p}/>
@@ -135,6 +165,9 @@ class App extends Component {
       mapClass = 'hide';
       listClass = 'block';
     }
+    const rooms = [1,2,3,4,5].map((r)=>
+      <option value={r} key={r}>{r}</option>
+    );
     return (
       <section className="listPage">
         {popup.sid?
@@ -152,14 +185,58 @@ class App extends Component {
             <input className="search" placeholder="Search address" value={filters.search} onChange={this.handleSearch} />
             <i className="fas fa-search"></i>
           </div>
-          <i className="fas fa-filter"></i>
+          <i className="fas fa-filter" onClick={()=>this.toggleFilter()}></i>
         </div>
         <div className="container">
+          {showFilter?
+            <div className="filterPopup">
+              <div className="filterGroup">
+                <label className="filterLabel">Prop Style</label>
+                <select className="filterInput" name="ptype2" onChange={this.updateFilter} value={filters.ptype2}>
+                  <option value="">Select a prop style</option>
+                  <option value="House">House</option>
+                  <option value="Detached">Detached</option>
+                  <option value="Semi-Detached">Semi-Detached</option>
+                  <option value="Townhouse">Townhouse</option>
+                  <option value="Apartment">Apartment</option>
+                  <option value="Loft">Loft</option>
+                  <option value="Room">Room</option>
+                </select>
+              </div>
+              <div className="filterGroup">
+                <label className="filterLabel">Bedroom</label>
+                <select className="filterInput" name="bdrms" onChange={this.updateFilter} value={filters.bdrms}>
+                  <option value="">Select bedroom number</option>
+                  {rooms}
+                </select>
+              </div>
+              <div className="filterGroup">
+                <label className="filterLabel">Bathroom</label>
+                <select className="filterInput" name="bthrms" onChange={this.updateFilter} value={filters.bthrms}>
+                  <option value="">Select bathroom number</option>
+                  {rooms}
+                </select>
+              </div>
+              <div className="filterGroup">
+                <label className="filterLabel">Garage</label>
+                <select className="filterInput" name="gr" onChange={this.updateFilter} value={filters.gr}>
+                  <option value="">Select garage number</option>
+                  {rooms}
+                </select>
+              </div>
+              <div className="filterBtns">
+                <a className="filterBtn cancel" onClick={()=>this.handleFilter('cancel')}>Cancel</a>
+                <a className="filterBtn reset" onClick={()=>this.handleFilter('reset')}>Reset</a>
+                <a className="filterBtn" onClick={()=>this.handleFilter('search')}>Search</a>
+              </div>
+            </div>
+          :null}
           <div id="mapContainer" className={mapClass}>
+            {loading?<Loading />:null}
             <div id="map"></div>
           </div>
           <div id="propList" className={listClass}>
-            {loading?'Loading':propsView}
+            {loading?<Loading />:propsView}
           </div>
         </div>
       </section>

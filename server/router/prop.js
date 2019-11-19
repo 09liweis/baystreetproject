@@ -1,10 +1,9 @@
 var express = require('express');
 var router = express.Router();
 const Prop = require('../models/prop');
-// const Prov = require('../models/prov');
+const Stat = require('../models/stat');
 const listingPicUrls = require('../helpers/prop');
 
-const fields = 'sid his addr ptype2 photonumbers pho phosrc ddfID picUrl phomt saletp city prov lp sp lat lng status bdrms bthrms gr zip';
 router.route('/')
 .post((req,res)=>{
   const filters = req.body;
@@ -19,6 +18,23 @@ router.route('/')
     query.lat = {$lt:neLat,$gt:swLat};
     query.lng = {$lt:neLng,$gt:swLng};
   }
+  if (filters.city) {
+    query.city = filters.city;
+    delete query.lat
+    delete query.lng
+  }
+  if (filters.ptype2) {
+    query.ptype2 = {$in:[filters.ptype2]};
+  }
+  if (filters.bdrms) {
+    query.bdrms = filters.bdrms;
+  }
+  if (filters.bthrms) {
+    query.bthrms = filters.bthrms;
+  }
+  if (filters.gr) {
+    query.gr = filters.gr;
+  }
   Prop.find(query,'', {limit:50}).sort('-ts').exec((err, props) => {
     for(let i in props) {
       let p = props[i];
@@ -27,6 +43,11 @@ router.route('/')
     res.status(200).json(props);
 	});
 });
+router.route('/cities').get((req,res)=>{
+  Stat.distinct('city',(err,cities)=>{
+    res.status(200).json(cities);
+  })
+})
 router.route('/importCity').get((req,res)=>{
   Prop.find({},'prov city').exec((err,props)=>{
     let provs = {};

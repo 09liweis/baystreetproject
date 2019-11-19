@@ -21,10 +21,12 @@ class Prop extends Component {
       img = p.photos[0];
     }
     if (p.feat) {
+      feat = [...new Set(p.feat)];
       feat = p.feat.map((f)=>
         <span key={f} className="propFeat">{f}</span>
       );
     }
+
     return (
       <div className="prop" onClick={this.gotoProp.bind(this)}>
         <div className="propImg" style={{'backgroundImage':'url('+img+')'}}>
@@ -32,8 +34,26 @@ class Prop extends Component {
           {p.dom?<div className="propDom">DOM: {p.dom}</div>:null}
         </div>
         <div className="propInfo">
-          <span className="propPrice">{getPrice(p)} {p.lpunt}</span>
-          <div className="propAddr">{p.addr} {p.city} {p.prov} {p.zip} {p.cnty}</div>
+          <span className="propPrice">{getPrice(p)}</span>
+          <div className="propRms">
+            <span className="propRm">
+              <i className="fas fa-bed"></i>
+              <b>{p.bdrms || 0}</b>
+            </span>
+            <span className="propRm">
+              <i className="fas fa-shower"></i>
+              <b>{p.bthrms || 0}</b>
+            </span>
+            <span className="propRm">
+              <i className="fas fa-parking"></i>
+              <b>{p.gr || 0}</b>
+            </span>
+            <span className="propRm">
+              <i className="fas fa-blender"></i>
+              <b>{p.kch || 0}</b>
+            </span>
+          </div>
+          <div className="propAddr">{p.crsst} ({p.cmty})</div>
         </div>
       </div>
     );

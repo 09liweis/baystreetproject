@@ -163,11 +163,29 @@ class Detail extends React.Component {
           :null}
           </div>
 
-          <div className="detailIntroContaioner detailBlock">
-          <div className="detaildetail">
-            <b>Detail Introduction：</b>
-            {prop.m}</div>
+          
+          <div className="detaildetailContainer detailBlock">
+          <div className="detailRms">
+            {prop.rms.map((rm)=>
+              <dl>
+                <dt>{rm.t} <small>{rm.l}</small></dt>
+                <dd>{rm.w}m x{rm.h}m</dd>
+              </dl>
+            )}
           </div>
+          </div>
+
+         
+          <div className="detaildetailContainer detailBlock">
+             <div className="head">
+          <header>
+            <h2>Detail Introduction：</h2>
+            </header>
+            <div className="text">{prop.m}</div>
+             </div>
+          </div>
+         
+          
         </div>
       </DefaultLayout>
     )

@@ -12,7 +12,6 @@ class App extends Component {
       view:'map',
       loading:false,
       popup:{},
-      filters:{search:'',ptype2:''},
       showFilter:false,
       cities:[]
     };
@@ -20,10 +19,16 @@ class App extends Component {
     this.updateFilter = this.updateFilter.bind(this);
     this.handleFilter = this.handleFilter.bind(this);
   }
+  componentWillMount() {
+    this.setEmptyFilter();
+  }
   componentDidMount() {
     this.fitBound = true;
     this.setMap();
     this.getCities();
+  }
+  setEmptyFilter() {
+    this.setState({filters:{search:'',ptype2:'',city:'',bdrms:'',bthrms:'',gr:''}})
   }
   getCities() {
     fetch('/api/prop/cities',{
@@ -157,7 +162,7 @@ class App extends Component {
         this.setState({showFilter:false});
         break;
       case 'reset':
-        this.setState({filters:{}});
+        this.setEmptyFilter();
         break;
       default:
         break;

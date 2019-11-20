@@ -36,18 +36,19 @@ class Detail extends React.Component {
               <i class="fas fa-shower"></i>
               <b>{prop.bthrms}</b>
             </span>
-            {(prop.kch)?
-            <span className="detailkitchen detailRoom">
-              <i class="fas fa-blender"></i>
-              <b>{prop.kch}</b>
-            </span>
-            :null}
-            {(prop.tot_park_spcs)?
+
             <span className="detailtotalparkingspace detailRoom">
               <i class="fas fa-parking"></i>
-              <b>{prop.tot_park_spcs}</b>
+              <b>{prop.gr||0}</b>
             </span> 
-            :null}
+
+            <span className="detailkitchen detailRoom">
+              <i class="fas fa-blender"></i>
+              <b>{prop.kch || 0}</b>
+            </span>
+            
+            
+           
           </div>
 
 
@@ -95,16 +96,13 @@ class Detail extends React.Component {
             <dd>{prop.water}</dd>
           </dl>
           :null}
-          {(prop.rltr)?
-          <dl className="detailstorey">
-            <dt>Center:</dt>
-            <dd>{prop.rltr}</dd>
-          </dl>
-          :null}
+          
           {(prop.feat)?
           <dl className="detailstorey">
-            <dt>Feat:</dt>
-            <dd>{prop.feat}</dd>
+            <dt>Feature:</dt>
+          <dd>{prop.feat.map((f)=>
+        <span key={f} className="feat">{f}</span>
+      )}</dd>
           </dl>
           :null}
           {(prop.age)?
@@ -163,11 +161,29 @@ class Detail extends React.Component {
           :null}
           </div>
 
-          <div className="detailIntroContaioner detailBlock">
-          <div className="detaildetail">
-            <b>Detail Introduction：</b>
-            {prop.m}</div>
+          
+          <div className="detaildetailContainer detailBlock">
+          <div className="detailRms">
+            {prop.rms.map((rm)=>
+              <dl>
+                <dt>{rm.t} <small>{rm.l}</small></dt>
+                <dd>{rm.w}m x{rm.h}m</dd>
+              </dl>
+            )}
           </div>
+          </div>
+
+         
+          <div className="detaildetailContainer detailBlock">
+             <div className="head">
+          <header>
+            <h2>Detail Introduction：</h2>
+            </header>
+            <div className="text">{prop.m}</div>
+             </div>
+          </div>
+         
+          
         </div>
       </DefaultLayout>
     )

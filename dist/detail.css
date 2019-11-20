@@ -105,6 +105,7 @@
     float: left;
     margin-bottom: .5rem;
     margin-left: 0;
+    
   }
 
 
@@ -116,4 +117,42 @@
   border-bottom: 1px solid #e6e6e6;
   border-right: none;
   padding: .625rem 0;
+}
+
+
+
+.detailRms{
+  width: 100%;
+  overflow: hidden;
+  height: auto;
+  min-height: 2.25rem;
+  display: inline-block;
+  margin: 0;
+}
+.detailRms dt{
+  min-width: 6rem;
+  float: left;
+  font-weight: 400;
+  color: #999;
+  width: 40%;
+}
+
+.detailRms dd{
+  width: 60%;
+  float: left;
+  margin-bottom: .5rem;
+  margin-left: 0;
+  
+}
+
+
+.text{
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+
+.feat{
+  margin-right: 40px;
+
 }

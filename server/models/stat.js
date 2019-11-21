@@ -12,7 +12,8 @@ var StatSchema = new Schema({
   Comp_Last_year:String,
   Comp_Last_month:String,
   hists:Array,
-  trd_vol:Array
+  trd_vol:Array,
+  common:String
 });
 
 module.exports = mongoose.model('Stat', StatSchema);

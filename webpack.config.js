@@ -1,4 +1,13 @@
 module.exports = {
+  context: __dirname + "/src",
+  entry: {
+    index: "./index.js",
+    login: "./login.js",
+  },
+  output: {
+    path: __dirname + "/dist",
+    filename: '[name].js',
+  },
   module: {
     rules: [
       {

@@ -2,10 +2,12 @@ const express = require('express'),
 port = process.env.PORT || 8083
 path = require('path'),
 app = express(),
+session = require('express-session'),
 bodyParser = require('body-parser'),
 mongoose = require('mongoose')
 pageRoute = require('./server/router/page')
-propRoute = require('./server/router/prop');
+propRoute = require('./server/router/prop')
+userRoute = require('./server/router/user');
 
 mongoose.Promise = global.Promise;
 
@@ -24,7 +26,7 @@ mongoose.connection.on('error', function() {
 mongoose.connection.on('disconnected', function () {    
   console.log('Mongoose connection disconnected');
 });
-
+app.use(session({ secret: '12345', cookie: { maxAge: 60000 }}))
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -38,6 +40,7 @@ app.use('/dist', express.static(path.join(__dirname) + '/dist'));
 app.use('/', pageRoute);
 
 app.use('/api/prop', propRoute);
+app.use('/api/user',userRoute);
 
 app.listen(port, () => {
 	console.log('Web server runs on: ' + port);

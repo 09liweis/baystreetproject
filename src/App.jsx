@@ -255,9 +255,9 @@ class App extends Component {
                 </select>
               </div>
               <div className="filterBtns">
-                <a className="filterBtn cancel" onClick={()=>this.handleFilter('cancel')}>Cancel</a>
-                <a className="filterBtn reset" onClick={()=>this.handleFilter('reset')}>Reset</a>
-                <a className="filterBtn" onClick={()=>this.handleFilter('search')}>Search</a>
+                <a className="btn cancel" onClick={()=>this.handleFilter('cancel')}>Cancel</a>
+                <a className="btn reset" onClick={()=>this.handleFilter('reset')}>Reset</a>
+                <a className="btn" onClick={()=>this.handleFilter('search')}>Search</a>
               </div>
             </div>
           :null}

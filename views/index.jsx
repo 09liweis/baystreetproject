@@ -6,7 +6,7 @@ class HelloMessage extends React.Component {
     return (
       <DefaultLayout title={this.props.title}>
         <div id="root"></div>
-        <script src="/dist/main.js"/>
+        <script src="/dist/index.js"/>
       </DefaultLayout>
     )
   }

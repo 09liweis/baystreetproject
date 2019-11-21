@@ -10,18 +10,19 @@ router.route('/')
 })
 router.route('/stats').get((req,res)=>{
   Stat.find({},(err,stats)=>{
-    res.render('stats',{title:'Stats',stats});
+    res.render('stats',{title:'Stats',stats,user:req.session.user});
   });
 });
 router.route('/login').get((req,res)=>{
-  res.render('login',{title:'Login Page'});
+  const user = req.session.user;
+  res.render('login',{title:'Login Page',user});
 });
 router.route('/prop/:id').get((req,res)=>{
   const id = req.params.id;
   Prop.findOne({sid:id},(err,prop)=>{
     prop.photos = listingPicUrls(prop,false);
     console.log(prop);
-    res.render('detail',{prop});
+    res.render('detail',{prop,user:req.session.user});
   })
 });
 module.exports = router;

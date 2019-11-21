@@ -3,12 +3,17 @@ var DefaultLayout = require('./layouts/default');
 
 class Stats extends React.Component {
   render() {
-    const {title} = this.props;
+    let {title,user} = this.props;
+    if (!user) {
+      user = {};
+    }
+    let initScript = 'var currentUser = ' + JSON.stringify(user).replace(/script/g, 'scr"+"ipt');
     return (
-      <DefaultLayout title={title} page={'login'}>
-        <div className="loginPage">
-          <h1>This is a login page</h1>
+      <DefaultLayout title={title} user={user} page={'login'}>
+        <div id="root" style={{'margin':'10px'}}>
         </div>
+        <script type="text/javascript" dangerouslySetInnerHTML={{__html: initScript}} />
+        <script src="/dist/login.js"/>
       </DefaultLayout>
     )
   }

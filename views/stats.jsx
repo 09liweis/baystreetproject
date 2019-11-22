@@ -3,7 +3,7 @@ var DefaultLayout = require('./layouts/default');
 
 class Stats extends React.Component {
   render() {
-    const {title,stats} = this.props;
+    const {title,stats,user} = this.props;
     console.log(stats);
     const statsView = stats.map((s)=>
     <div className="statsPage" key={s._id}>
@@ -26,7 +26,7 @@ class Stats extends React.Component {
     </div>
     )
     return (
-      <DefaultLayout title={title} page={'stats'}>
+      <DefaultLayout title={title} page={'stats'} user={user}>
         {statsView}
       </DefaultLayout>
     )

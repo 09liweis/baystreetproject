@@ -30,7 +30,7 @@ class Login extends Component {
       body:JSON.stringify(user)
     }).then(res=>res.json()).then(ret=>{
       if (ret.ok) {
-        location.reload();
+        window.location.href = '/dashboard';
       } else {
         alert('Email or Password is not correct');
       }
@@ -75,7 +75,9 @@ class Login extends Component {
     );
     if (currentUser.name) {
       view = (
-        <div>Dashboard</div>
+        <div className="dashboard">
+          <h2>Dashboard</h2>
+        </div>
       )
     }
     return (

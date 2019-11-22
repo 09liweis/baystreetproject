@@ -3,13 +3,20 @@ var DefaultLayout = require('./layouts/default');
 
 class Detail extends React.Component {
   render() {
-    const {prop} = this.props;
+    let {prop,user} = this.props;
+    if (!user) {
+      user = {};
+    } else {
+      user.currentPropId = prop.id;
+    }
+    let initScript = 'var currentUser = ' + JSON.stringify(user).replace(/script/g, 'scr"+"ipt');
     var imgs = prop.photos.map((img)=>
-      <img className="img" src={img}/>
+      <img className="img" key={img} src={img}/>
     );
     return (
-      <DefaultLayout title={prop.addr} page={'detail'}>
+      <DefaultLayout title={prop.addr} user={user} page={'detail'}>
         <div className="detailPage">
+          <div id="favs"></div>
           <div className="detailImgs">
             {imgs}
           </div>
@@ -29,21 +36,21 @@ class Detail extends React.Component {
           
           <div className="detailIconContainer">
             <span className="detailtotalbedrooms detailRoom">
-              <i class="fas fa-bed"></i>
+              <i className="fas fa-bed"></i>
               <b>{prop.tbdrms}</b>
             </span>
             <span className="detailbathroom detailRoom">
-              <i class="fas fa-shower"></i>
+              <i className="fas fa-shower"></i>
               <b>{prop.bthrms}</b>
             </span>
 
             <span className="detailtotalparkingspace detailRoom">
-              <i class="fas fa-parking"></i>
+              <i className="fas fa-parking"></i>
               <b>{prop.gr||0}</b>
             </span> 
 
             <span className="detailkitchen detailRoom">
-              <i class="fas fa-blender"></i>
+              <i className="fas fa-blender"></i>
               <b>{prop.kch || 0}</b>
             </span>
             
@@ -164,8 +171,8 @@ class Detail extends React.Component {
           
           <div className="detaildetailContainer detailBlock">
           <div className="detailRms">
-            {prop.rms.map((rm)=>
-              <dl>
+            {prop.rms.map((rm,idx)=>
+              <dl key={idx}>
                 <dt>{rm.t} <small>{rm.l}</small></dt>
                 <dd>{rm.w}m x{rm.h}m</dd>
               </dl>
@@ -185,6 +192,8 @@ class Detail extends React.Component {
          
           
         </div>
+        <script type="text/javascript" dangerouslySetInnerHTML={{__html: initScript}} />
+        <script src="/dist/detail.js"/>
       </DefaultLayout>
     )
   }

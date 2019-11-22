@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const Prop = require('../models/prop');
 const Stat = require('../models/stat');
+const {User} = require('../models/user');
 const listingPicUrls = require('../helpers/prop');
 
 router.route('/')
@@ -47,7 +48,15 @@ router.route('/cities').get((req,res)=>{
   Stat.distinct('city',(err,cities)=>{
     res.status(200).json(cities);
   })
-})
+});
+router.route('/fav').post((req,res)=>{
+  const favs = req.body.favs;
+  const user = req.session.user;
+  user.favs = favs;
+  User.findOneAndUpdate({_id:user._id},user,{'upsert': true },(err,ret)=>{
+    res.status(200).json({ok:1});
+  })
+});
 router.route('/importCity').get((req,res)=>{
   Prop.find({},'prov city').exec((err,props)=>{
     let provs = {};

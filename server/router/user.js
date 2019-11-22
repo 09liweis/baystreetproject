@@ -13,7 +13,7 @@ router.post('/login',async (req,res)=>{
   const query = {
     email:req.body.email,
   };
-  User.findOne(query,'name email password',(err,user)=>{
+  User.findOne(query,'name email password favs isAdmin',(err,user)=>{
     bcrypt.compare(password, user.password, function(err, ret) {
       if (ret) {
         req.session.user = user;

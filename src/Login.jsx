@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import Loading from './components/Loading.jsx';
+import Prop from './components/Prop.jsx';
 
 class Login extends Component {
   constructor() {
     super();
     this.state = {
       loading:false,
+      view:'login',
       user:{
         name:'',
         email:'',
@@ -16,6 +18,7 @@ class Login extends Component {
     };
     this.handleAuth = this.handleAuth.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.changeView = this.changeView.bind(this);
   }
   componentWillMount() {
   }
@@ -24,7 +27,12 @@ class Login extends Component {
   }
   handleAuth(opt) {
     const {user} = this.state;
-    fetch('/api/user/login',{
+    if (opt == 'login') {
+      var url = '/api/user/login';
+    } else {
+      var url = '/api/user/';
+    }
+    fetch(url,{
       method:'POST',
       headers: {'Content-Type':'application/json'},
       body:JSON.stringify(user)
@@ -44,22 +52,20 @@ class Login extends Component {
     this.setState({user});
   }
   changeView(view) {
-    if (view == 'map') {
-      this.setState({view:'list'});
-    } else {
-      this.setState({view:'map'});
-    }
+    this.setState({view});
   }
   
   render() {
-    const {user,currentUser} = this.state;
-    let view = (
+    const {user,currentUser,view} = this.state;
+    let formView = (
       <div className="authContainer">
-        <h1>Login</h1>
-        {/* <div className="filterGroup">
+        <h1>{view}</h1>
+        {view == 'register'?
+        <div className="filterGroup">
           <label className="filterLabel">name</label>
           <input className="filterInput" name="name" onChange={this.handleChange} value={user.name}/>
-        </div> */}
+        </div>
+        :null}
         <div className="filterGroup">
           <label className="filterLabel">email</label>
           <input className="filterInput" name="email" onChange={this.handleChange} value={user.email}/>
@@ -69,20 +75,35 @@ class Login extends Component {
           <input className="filterInput" type="password" name="password" onChange={this.handleChange} value={user.password}/>
         </div>
         <div className="btns">
-          <a className="btn" onClick={()=>this.handleAuth('login')}>login</a>
+          <a className="btn" onClick={()=>this.handleAuth(view)}>{view}</a>
+        </div>
+        <div className="links">
+          {view == 'login'?
+          <a className="link" onClick={()=>this.changeView('register')}>register</a>
+          :<a className="link" onClick={()=>this.changeView('login')}>login</a>}
         </div>
       </div>
     );
     if (currentUser.name) {
-      view = (
+      let favs;
+      if (currentUser.props && currentUser.props.length > 0) {
+        favs = currentUser.props.map((p)=>
+          <Prop p={p} key={p.id} />
+        )
+      } else {
+        favs = <div className="emptyMsg">You don't have any favourite property yet.</div>
+      }
+      formView = (
         <div className="dashboard">
-          <h2>Dashboard</h2>
+          <a className="btn" href="/logout">Logout</a>
+          <h2>Favourites</h2>
+          {favs}
         </div>
       )
     }
     return (
       <div>
-        {view}
+        {formView}
       </div>
     );
   }

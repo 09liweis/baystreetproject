@@ -1,11 +1,13 @@
 var React = require('react');
 var DefaultLayout = require('./layouts/default');
 
-class Stats extends React.Component {
+class Login extends React.Component {
   render() {
-    let {title,user} = this.props;
+    let {title,user,props} = this.props;
     if (!user) {
       user = {};
+    } else {
+      user.props = props;
     }
     let initScript = 'var currentUser = ' + JSON.stringify(user).replace(/script/g, 'scr"+"ipt');
     return (
@@ -19,4 +21,4 @@ class Stats extends React.Component {
   }
 }
 
-module.exports = Stats;
+module.exports = Login;

@@ -24,6 +24,9 @@ const UserSchema = new mongoose.Schema({
     minlength: 3,
     maxlength: 255
   },
+  favs:{
+    type:Array
+  },
   //give different access rights if admin or not 
   isAdmin: Boolean
 });

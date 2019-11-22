@@ -3,6 +3,7 @@ module.exports = {
   entry: {
     index: "./index.js",
     login: "./login.js",
+    detail: "./detail.js",
   },
   output: {
     path: __dirname + "/dist",

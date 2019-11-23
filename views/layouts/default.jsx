@@ -23,7 +23,7 @@ class DefaultLayout extends React.Component {
         </head>
         <body>
           <header id="header">
-            <h2 id="logo">Bay Street</h2>
+            <h2 id="logo">Green House</h2>
             <div id="nav">
               <a className="navItem" href="/">Buy</a>
               <a className="navItem" href="/stats">Stats</a>

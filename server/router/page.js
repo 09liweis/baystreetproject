@@ -7,7 +7,7 @@ const listingPicUrls = require('../helpers/prop');
 router.route('/')
 .get((req,res)=>{
   const user = req.session.user;
-  res.render('index', {title:'Bay Street Project',user});
+  res.render('index', {title:'Green House',user});
 })
 router.route('/stats').get((req,res)=>{
   Stat.find({},(err,stats)=>{

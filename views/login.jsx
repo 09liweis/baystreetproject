@@ -3,12 +3,13 @@ var DefaultLayout = require('./layouts/default');
 
 class Login extends React.Component {
   render() {
-    let {title,user,props} = this.props;
+    let {title,user,props,redirect} = this.props;
     if (!user) {
       user = {};
     } else {
       user.props = props;
     }
+    user.redirect = redirect;
     let initScript = 'var currentUser = ' + JSON.stringify(user).replace(/script/g, 'scr"+"ipt');
     return (
       <DefaultLayout title={title} user={user} page={'login'}>

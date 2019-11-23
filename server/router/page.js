@@ -17,7 +17,8 @@ router.route('/stats').get((req,res)=>{
 });
 router.route('/login').get((req,res)=>{
   const user = req.session.user;
-  res.render('login',{title:'Login Page',user});
+  const d = req.query.d;
+  res.render('login',{title:'Login Page',user,redirect:d});
 });
 router.route('/logout').get((req,res)=>{
   req.session.destroy((err)=>{
@@ -30,7 +31,7 @@ router.route('/dashboard').get((req,res)=>{
     res.redirect('/login');
   } else {
     if (user.favs.length > 0) {
-      Prop.find({id:{$in:user.favs}}).exec((err,props)=>{
+      Prop.find({sid:{$in:user.favs}}).exec((err,props)=>{
         for(let i in props) {
           let p = props[i];
           props[i].photos = listingPicUrls(p,false);

@@ -8,7 +8,7 @@ const listingPicUrls = require('../helpers/prop');
 router.route('/')
 .post((req,res)=>{
   const filters = req.body;
-  let query = {};
+  let query = {la:{$ne:null}};
   if (filters.search) {
     query.addr = new RegExp(filters.search,'i');
   } else if (filters.bbox) {

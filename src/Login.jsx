@@ -26,7 +26,7 @@ class Login extends Component {
     
   }
   handleAuth(opt) {
-    const {user} = this.state;
+    const {user,currentUser} = this.state;
     if (opt == 'login') {
       var url = '/api/user/login';
     } else {
@@ -38,7 +38,11 @@ class Login extends Component {
       body:JSON.stringify(user)
     }).then(res=>res.json()).then(ret=>{
       if (ret.ok) {
-        window.location.href = '/dashboard';
+        if (currentUser.redirect) {
+          window.location.href = currentUser.redirect;
+        } else {
+          window.location.href = '/dashboard';
+        }
       } else {
         alert('Email or Password is not correct');
       }

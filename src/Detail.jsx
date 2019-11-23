@@ -18,6 +18,10 @@ class Login extends Component {
   }
   handleFav() {
     let {currentUser} = this.state;
+    if (!currentUser.name) {
+      window.location.href = '/login?d=/prop/'+currentUser.currentPropId;
+      return;
+    }
     let favs = currentUser.favs || [];
     const currentPropId = currentUser.currentPropId;
     const idx = favs.indexOf(currentPropId);
@@ -26,7 +30,6 @@ class Login extends Component {
     } else {
       favs.unshift(currentPropId);
     }
-    console.log(favs);
     fetch('/api/prop/fav',{
       method:'POST',
       headers: {'Content-Type':'application/json'},
@@ -45,9 +48,9 @@ class Login extends Component {
     const favs = currentUser.favs || [];
     let favView;
     if (favs.indexOf(currentPropId) > -1) {
-      favView = <i className="fas fa-heart"></i>;
+      favView = <i className="fas fa-heart">Added to favourite</i>;
     } else {
-      favView = <i className="far fa-heart"></i>;
+      favView = <i className="far fa-heart">Add to favourite</i>;
     }
     return (
       <div onClick={()=>this.handleFav()}>

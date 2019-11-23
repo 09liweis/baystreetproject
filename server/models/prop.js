@@ -55,7 +55,9 @@ var PropSchema = new Schema({
   ac:String,
   bths:Array,
   crsst:String,
-  dom:Number
+  dom:Number,
+  la:Object,
+  photonumbers:Number
 });
 
 PropSchema.pre('save', (next) => {

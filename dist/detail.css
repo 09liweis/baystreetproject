@@ -6,6 +6,10 @@
   padding:20px;
   margin-bottom: 10px;
 }
+#favs {
+  font-size: 16px;
+  text-align: center;
+}
 .detailAddrContainer {
   text-align:center;
   padding: .625rem 0;
@@ -148,6 +152,35 @@
 
 
 .feat{
-  margin-right: 40px;
+  margin-right: 10px;
 
+}
+.detailLa {
+  position:fixed;
+  bottom:0;
+  width:100%;
+}
+.detailLaInfo {
+  background-color:#fff;
+  padding:10px;
+  display: none;
+}
+.detailAgNm {
+  font-size:12px;
+  margin-bottom:10px;
+}
+@media only screen and (min-width: 768px) {
+  .detailLeft {
+    display:inline-block;
+    width:70%;
+  }
+  .detailLa {
+    display:inline-block;
+    position: relative;
+    width:30%;
+    vertical-align: top;
+  }
+  .detailLaInfo {
+    display: block;
+  }
 }

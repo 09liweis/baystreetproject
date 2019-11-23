@@ -4,6 +4,7 @@ module.exports = {
     index: "./index.js",
     login: "./login.js",
     detail: "./detail.js",
+    stats: "./stats.js",
   },
   output: {
     path: __dirname + "/dist",

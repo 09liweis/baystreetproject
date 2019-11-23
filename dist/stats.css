@@ -1,9 +1,42 @@
-.statsTitle {
-  color:red;
+.statsPage {
+  margin:0 10px;
 }
-.statstitlle{
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3; 
-  overflow: hidden; 
+.stat {
+  background-color:#fff;
+  padding:10px;
+  margin-bottom: 20px;
+}
+.statDatas {
+  display:flex;
+  flex-wrap: wrap;
+}
+.statData {
+  flex:auto;
+  width:33.33333%;
+  border: 1px solid #ccc;
+  padding:5px;
+}
+.statDataLabel {
+  margin:5px 0;
+  font-size: 10px;
+}
+.statCharts {
+  /* display: flex;
+  flex-wrap: wrap; */
+  margin:10px 0;
+}
+.statChart {
+  display:inline-block;
+  width:100%;
+}
+@media only screen and (min-width: 768px) {
+  .statData {
+    width:auto;
+  }
+  .statCharts {
+    flex-wrap: nowrap;
+  }
+  .statChart {
+    width:50%;
+  }
 }

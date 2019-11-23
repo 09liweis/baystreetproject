@@ -36,7 +36,7 @@ router.route('/')
   if (filters.gr) {
     query.gr = filters.gr;
   }
-  Prop.find(query,'', {limit:50}).sort('-ts').exec((err, props) => {
+  Prop.find(query,'', {limit:30}).sort('-ts').exec((err, props) => {
     for(let i in props) {
       let p = props[i];
       props[i].photos = listingPicUrls(p,false);

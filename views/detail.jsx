@@ -11,14 +11,21 @@ class Detail extends React.Component {
     }
     let initScript = 'var currentUser = ' + JSON.stringify(user).replace(/script/g, 'scr"+"ipt');
     var imgs = prop.photos.map((img)=>
-      <img className="img" key={img} src={img}/>
+      <img className="swiper-slide" key={img} src={img}/>
     );
     return (
       <DefaultLayout title={prop.addr} user={user} page={'detail'}>
+        <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css"/>
         <div className="detailPage">
-          <div id="favs"></div>
-          <div className="detailImgs">
-            {imgs}
+          <div className="swiper-container detailImgs">
+            <div className="swiper-wrapper">
+              {imgs}
+            </div>
+            <div className="swiper-pagination"></div>
+
+            <div className="swiper-button-prev"></div>
+            <div className="swiper-button-next"></div>
+
           </div>
           <div className="detailAddrContainer">
              <div className="detailAddress">{prop.addr}</div>
@@ -33,7 +40,7 @@ class Detail extends React.Component {
              <div className="detailforsale">{prop.lpunt}</div>
           </div>
 
-          
+          <div id="favs"></div>
           <div className="detailIconContainer">
             <span className="detailtotalbedrooms detailRoom">
               <i className="fas fa-bed"></i>
@@ -53,9 +60,6 @@ class Detail extends React.Component {
               <i className="fas fa-blender"></i>
               <b>{prop.kch || 0}</b>
             </span>
-            
-            
-           
           </div>
 
 
@@ -71,13 +75,11 @@ class Detail extends React.Component {
             <dd>{prop.taxyr}</dd>
           </dl>
           <dl className="detailstorey">
-            <dt>Tax: $</dt>
-            <dd>{prop.tax}</dd>
+            <dt>Tax: </dt>
+            <dd>${prop.tax}</dd>
           </dl>
           </div> 
-          
-        
-          
+
           <div className="detaildetailContainer detailBlock">
           {(prop.lstd)?
           <dl className="detailstorey">
@@ -104,7 +106,7 @@ class Detail extends React.Component {
           </dl>
           :null}
           
-          {(prop.feat)?
+          {(prop.feat.length > 0)?
           <dl className="detailstorey">
             <dt>Feature:</dt>
           <dd>{prop.feat.map((f)=>
@@ -171,10 +173,11 @@ class Detail extends React.Component {
           
           <div className="detaildetailContainer detailBlock">
           <div className="detailRms">
+            <dl><dt>Room</dt><dd>Width x Height</dd></dl>
             {prop.rms.map((rm,idx)=>
               <dl key={idx}>
                 <dt>{rm.t} <small>{rm.l}</small></dt>
-                <dd>{rm.w}m x{rm.h}m</dd>
+                <dd>{rm.w}m x {rm.h}m</dd>
               </dl>
             )}
           </div>
@@ -182,17 +185,13 @@ class Detail extends React.Component {
 
          
           <div className="detaildetailContainer detailBlock">
-             <div className="head">
-          <header>
-            <h2>Detail Introduction：</h2>
-            </header>
             <div className="text">{prop.m}</div>
-             </div>
           </div>
          
           
         </div>
         <script type="text/javascript" dangerouslySetInnerHTML={{__html: initScript}} />
+        <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
         <script src="/dist/detail.js"/>
       </DefaultLayout>
     )
